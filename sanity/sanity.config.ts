@@ -13,10 +13,10 @@ import { schemaTypes } from './schemas'
 const singletonTypes = ['site']
 
 export default defineConfig({
-	name: 'default',
-	title: 'Next.js + Sanity.io Starter',
+	name: 'Lørenskog Innebandyklubb',
+	title: 'ADMIN PANEL (CMS)',
 
-	projectId: 'elyfelq1',
+	projectId: 'hkdejsji',
 	dataset: 'production',
 
 	plugins: [

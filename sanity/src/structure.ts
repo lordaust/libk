@@ -12,6 +12,8 @@ const structure: StructureResolver = (S, context) =>
 			S.divider(),
 
 			list(S, 'Blog posts', 'blog.post').icon(VscEdit),
+			list(S, 'Teams', 'team').icon(VscEdit),
+			list(S, 'People', 'person').icon(VscEdit),
 			list(S, 'Blog categories', 'blog.category').icon(VscTag),
 		])
 

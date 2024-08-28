@@ -1,4 +1,4 @@
-# Next.js + Sanity.io Starter Template
+# Lørenskog innebandy nettsider og CMS
 
 > [Published on Sanity.io](https://www.sanity.io/templates/next-sanity-template)
 
