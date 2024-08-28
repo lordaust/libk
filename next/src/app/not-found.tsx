@@ -1,10 +1,16 @@
 import { fetchSanity, groq } from '@/lib/sanity'
 import Modules from '@/ui/modules'
+import Firenullfire from '@/ui/modules/firenullfire'
 
 export default async function NotFound() {
 	const page = await get404()
 	if (!page) return <h1 className="text-center text-5xl">404</h1>
-	return <Modules modules={page?.modules} />
+	return (
+		<div>
+			<Modules modules={page?.modules} />
+			<Firenullfire />
+		</div>
+	)
 }
 
 export async function generateMetadata() {

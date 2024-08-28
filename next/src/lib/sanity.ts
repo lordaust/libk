@@ -6,7 +6,7 @@ import {
 import dev from '@/lib/env'
 export { groq } from 'next-sanity'
 
-export const client = createClient({
+const sanityClient = createClient({
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
 	dataset: 'production',
 	apiVersion: '2023-12-03',
@@ -20,7 +20,7 @@ export function fetchSanity<T = any>(
 		...next
 	}: { params?: QueryParams } & ResponseQueryOptions['next'] = {},
 ) {
-	return client.fetch<T>(query, params, {
+	return sanityClient.fetch<T>(query, params, {
 		...(dev && {
 			token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
 			perspective: 'previewDrafts',
@@ -31,3 +31,5 @@ export function fetchSanity<T = any>(
 		},
 	})
 }
+
+export { sanityClient }

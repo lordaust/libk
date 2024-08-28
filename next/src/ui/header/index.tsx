@@ -10,15 +10,22 @@ export default async function Header() {
 	return (
 		<Wrapper className="sticky top-0 z-10">
 			<Link href="/">{title}</Link>
-
 			<nav className="flex gap-4">
 				{menu?.map((item, key) => {
 					switch (item._type) {
 						case 'link':
-							return <CTA className="link" link={item} key={key} />
+							return (
+								<>
+									<CTA className="link" link={item} key={key} />
+								</>
+							)
 
 						case 'link.list':
-							return <LinkList {...item} key={key} />
+							return (
+								<>
+									<LinkList {...item} key={key} />
+								</>
+							)
 
 						default:
 							return null
