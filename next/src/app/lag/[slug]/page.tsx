@@ -5,6 +5,8 @@ import React from 'react'
 import PageHeading from '@/ui/modules/PageHeading'
 import TeamDetails from '@/ui/modules/TeamDetails'
 import Oss from '@/ui/modules/Oss'
+import Separator from '@/ui/modules/Separator'
+import Coach from '@/ui/modules/Coach'
 
 type TeamPageProps = {
 	params: {
@@ -26,7 +28,11 @@ const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
 				title={team.teamTitle}
 				description={team.teamLongDescription}
 			/>
+			<Coach coach={team.contactPerson} />
+			<Separator />
 			<TeamDetails team={team} />
+			<Separator />
+
 			<Oss />
 		</div>
 	)

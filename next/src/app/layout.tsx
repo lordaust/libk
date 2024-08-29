@@ -1,7 +1,6 @@
 import Forside from '@/ui/forside'
 import Nav from '@/ui/nav'
 import Footer from '@/ui/footer'
-import Partnere from '@/ui/modules/Partnere'
 // import { GoogleTagManager } from '@next/third-parties/google'
 import '@/styles/app.css'
 
@@ -29,13 +28,12 @@ export default function RootLayout({
 		<html className="h-full bg-white" lang="no">
 			<body className={poppins.className}>
 				<div className="flex h-full">
-					<nav className="h-full w-64 bg-slate_blue">
+					<nav className="bg-slate_blue h-full w-64">
 						<Nav />
 					</nav>
 					<div className="ml-5 flex-1 p-8">
 						<Forside />
 						{children}
-						<Partnere />
 						<Footer />
 					</div>
 				</div>

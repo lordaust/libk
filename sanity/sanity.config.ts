@@ -13,7 +13,7 @@ import { schemaTypes } from './schemas'
 const singletonTypes = ['site']
 
 export default defineConfig({
-	name: 'Lørenskog Innebandyklubb',
+	name: 'libk',
 	title: 'ADMIN PANEL (CMS)',
 
 	projectId: 'hkdejsji',

@@ -5,18 +5,6 @@ export default {
 	type: 'document',
 	fields: [
 		{
-			name: 'teamTitle',
-			title: 'Team Title',
-			type: 'string',
-			initialValue: 'Lagnavn', // Correctly using initialValue
-		},
-		{
-			name: 'teamDescription',
-			title: 'Team Description',
-			type: 'text',
-			initialValue: 'Lagbeskrivelse', // Correctly using initialValue
-		},
-		{
 			name: 'teamName',
 			title: 'Unique Team Name',
 			type: 'slug',
@@ -29,11 +17,31 @@ export default {
 			},
 		},
 		{
-			name: 'contactPerson',
-			title: 'Contact Person',
-			type: 'reference',
-			to: [{ type: 'person' }],
-			weak: true, // Enables weak references
+			name: 'teamTitle',
+			title: 'Team Title',
+			type: 'string',
+			initialValue: 'Lagnavn', // Correctly using initialValue
+		},
+		{
+			name: 'teamCategory',
+			title: 'Category',
+			type: 'string',
+			initialValue: 'Aldersbestemt', // Default value
+			options: {
+				list: [
+					{ title: 'Aldersbestemt', value: 'Aldersbestemt' },
+					{ title: 'Herrer', value: 'Herrer' },
+					{ title: 'Damer', value: 'Damer' },
+				],
+				layout: 'radio', // optional: you can display as radio buttons
+			},
+			validation: (Rule: any) => Rule.required().error('Category is required'),
+		},
+		{
+			name: 'participationDescription',
+			title: 'Participation Description',
+			type: 'text',
+			initialValue: 'Info om hvem som kan bli med kommer', // Correctly using initialValue
 		},
 		{
 			name: 'contactPersonType',
@@ -42,10 +50,11 @@ export default {
 			initialValue: 'Lagleder', // Correctly using initialValue
 		},
 		{
-			name: 'participationDescription',
-			title: 'Participation Description',
-			type: 'text',
-			initialValue: 'Info kommer', // Correctly using initialValue
+			name: 'contactPerson',
+			title: 'Contact Person',
+			type: 'reference',
+			to: [{ type: 'person' }],
+			weak: true, // Enables weak references
 		},
 		{
 			name: 'trainingTimes',
@@ -79,7 +88,7 @@ export default {
 			name: 'teamLongDescription',
 			title: 'Team Long Description',
 			type: 'text',
-			initialValue: 'Info kommer', // Correctly using initialValue
+			initialValue: 'Lagbeskrivelse', // Correctly using initialValue
 		},
 		{
 			name: 'teamDescRichText',

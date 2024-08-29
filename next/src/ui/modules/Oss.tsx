@@ -36,7 +36,7 @@ const faqs = [
 export default function OSS() {
 	return (
 		<div className="bg-white">
-			<div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+			<div className="max-w-7xl px-6 py-10 sm:pt-10 lg:px-8 lg:py-10">
 				<div className="lg:grid lg:grid-cols-12 lg:gap-8">
 					<div className="lg:col-span-5">
 						<h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">

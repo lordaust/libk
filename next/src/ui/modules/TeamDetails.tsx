@@ -16,18 +16,10 @@ const TeamDetails: React.FC<TeamDetailsProps> = ({ team }) => {
 			<div className="mt-2">
 				<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
 					<dt className="text-sm font-medium leading-6 text-gray-900">
-						Ansvarlig kontaktperson
-					</dt>
-					<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-						{team.contactPerson.name} ({team.contactPerson.email} -{' '}
-						{team.contactPerson.phone})
-					</dd>
-				</div>
-				<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-					<dt className="text-sm font-medium leading-6 text-gray-900">
 						Hvem kan bli med?
 					</dt>
 					<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+						<strong>{team.teamCategory}:</strong>{' '}
 						{team.participationDescription}
 					</dd>
 				</div>

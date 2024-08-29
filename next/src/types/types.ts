@@ -20,8 +20,11 @@ export type TrainingTimeType = string[]
 
 export type TeamType = {
 	teamTitle: string
-	teamDescRichText: any // Assuming it's a rich text field, you might handle this differently
-	teamName: string
+	teamName: {
+		current: string
+		_type: 'slug'
+	}
+	teamCategory: string
 	contactPerson: PersonType
 	contactPersonType: string
 	participationDescription: string
@@ -31,6 +34,7 @@ export type TeamType = {
 	spondCode: string
 	teamLink: string
 	teamLongDescription: string
+	teamDescRichText: any // Assuming it's a rich text field, you might handle this differently
 	sortorderValue: number
 	activeState: boolean
 }

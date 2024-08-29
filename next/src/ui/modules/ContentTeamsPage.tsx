@@ -6,7 +6,7 @@ import {
 export default function ContentTeamsPage() {
 	return (
 		<div className="bg-white px-6 pb-32 lg:px-8">
-			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+			<div className="max-w-3xl text-base leading-7 text-gray-700 ">
 				<div className="mt-10 max-w-2xl">
 					<p>
 						Kontaktpersoner aldersbestemte lag – bruk gjerne SMS først for å gi

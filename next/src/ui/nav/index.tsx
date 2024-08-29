@@ -3,16 +3,19 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Separator from '../modules/Separator'
 
 import navigation from './navigation_data'
-import teams from './teams_data'
+//import teams2 from './teams_data'
+import fetchTeamsData from '@/lib/fetchTeamsData'
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBar() {
+export default async function NavBar() {
 	const [sidebarOpen, setSidebarOpen] = useState(false)
+	const teams = await fetchTeamsData()
 
 	return (
 		<div>
@@ -70,7 +73,7 @@ export default function NavBar() {
 										</div>
 									</Transition.Child>
 									{/* Sidebar component, swap this element with another sidebar if you like */}
-									<div className="bg-background_blue flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2">
+									<div className="flex grow flex-col gap-y-5 overflow-y-auto bg-background_blue px-6 pb-2">
 										{/*<div className="flex items-center h-16 pb-5 mb-5 shrink-0">
 											<Image
 												className="w-auto h-8"
@@ -116,20 +119,17 @@ export default function NavBar() {
 													</div>
 													<ul role="list" className="-mx-2 mt-2 space-y-1">
 														{teams.map((team) => (
-															<li key={team.name}>
+															<li key={team.teamName.current}>
 																<a
-																	href={team.href}
-																	className={classNames(
-																		team.current
-																			? 'bg-blue-800 text-white'
-																			: 'text-indigo-200 hover:bg-indigo-700 hover:text-white',
-																		'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
-																	)}
+																	href={`/lag/${team.teamName.current}`}
+																	className="group flex gap-x-3 rounded-md bg-background_blue p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
 																>
 																	<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
-																		{team.initial}
+																		{team.teamCategory.charAt(0)}
 																	</span>
-																	<span className="truncate">{team.name}</span>
+																	<span className="truncate">
+																		{team.teamTitle}
+																	</span>
 																</a>
 															</li>
 														))}
@@ -193,33 +193,29 @@ export default function NavBar() {
 									</div>
 									<ul role="list" className="mt-2 space-y-1">
 										{teams.map((team) => (
-											<li key={team.name}>
+											<li key={team.teamName.current}>
 												<a
-													href={team.href}
-													className={classNames(
-														team.current
-															? 'bg-blue-600 text-white'
-															: 'text-indigo-200 hover:bg-indigo-700 hover:text-white',
-														'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
-													)}
+													href={`/lag/${team.teamName.current}`}
+													className="group flex gap-x-3 rounded-md bg-background_blue p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
 												>
 													<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
-														{team.initial}
+														{team.teamCategory.charAt(0)}
 													</span>
-													<span className="truncate">{team.name}</span>
+													<span className="truncate">{team.teamTitle}</span>
 												</a>
 											</li>
 										))}
 									</ul>
-									<div>
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
-											A: Aldersbestemte trinn
+									<Separator />
+									<div className="text-xs">
+										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+											<strong>A:</strong> Aldersbestemt trinn
 										</div>
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
-											H: Herrer
+										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+											<strong>H:</strong> Herrer
 										</div>
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
-											K: Kvinner
+										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+											<strong>D:</strong> Damer
 										</div>
 									</div>
 								</li>

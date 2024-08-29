@@ -2,8 +2,8 @@ import { groq } from 'next-sanity'
 import { sanityClient } from '@/lib/sanity'
 import { TeamType } from '@/types/types'
 
-const fetchTeamData = async (slug: string): Promise<TeamType> => {
-	const query = groq`*[_type == "team" && teamName.current == $slug && activeState == true][0]{
+const fetchTeamsData = async (): Promise<TeamType[]> => {
+	const query = groq`*[_type == "team" && activeState == true]| order(sortorderValue asc) {
   teamTitle,
   teamDescriptionRichText,
   teamName,
@@ -14,7 +14,7 @@ const fetchTeamData = async (slug: string): Promise<TeamType> => {
     phone,
     role,
 		photo,
-    "photoUrl": photo.asset->url,
+		"photoUrl": photo.asset->url,
 		boardMember,
     linkedIn,
     description,
@@ -32,7 +32,7 @@ const fetchTeamData = async (slug: string): Promise<TeamType> => {
   sortorderValue,
   activeState
 }`
-	return await sanityClient.fetch(query, { slug })
+	return await sanityClient.fetch(query)
 }
 
-export default fetchTeamData
+export default fetchTeamsData
