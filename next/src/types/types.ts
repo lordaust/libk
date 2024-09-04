@@ -38,3 +38,57 @@ export type TeamType = {
 	sortorderValue: number
 	activeState: boolean
 }
+
+export type FaqType = {
+	_id: string
+	question: string
+	answer: string
+	category: string
+	order: number
+}
+
+export type Attachment = {
+	title: string
+	description?: string
+	_id: string
+	fileUrl: string
+}
+
+export type BlogCategoryType = {
+	_id: string
+	title: string
+}
+
+export type BlogPostType = {
+	_id: string
+	title: string // This is the human-readable title
+	slug: {
+		current: string // This is the slugified version of the title
+		_type: string
+	}
+	body: Array<{
+		_key: string
+		_type: string
+		// Define the types for different possible block types here
+		children?: Array<{
+			_key: string
+			_type: 'span'
+			text: string
+		}>
+		markDefs?: any[]
+		style?: string
+	}>
+	publishDate: string // Date in ISO format
+	attachments: Attachment[]
+	author: {
+		_id: string
+		name: string
+		role: string
+		photo: {
+			caption: string
+		}
+		photoUrl: string
+	}
+	description: string
+	categories: BlogCategoryType[]
+}

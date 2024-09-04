@@ -18,7 +18,7 @@ export default async function NavBar() {
 	const teams = await fetchTeamsData()
 
 	return (
-		<div>
+		<div className="mt-10">
 			<div>
 				<Transition.Root show={sidebarOpen} as={Fragment}>
 					<Dialog
@@ -207,17 +207,17 @@ export default async function NavBar() {
 										))}
 									</ul>
 									<Separator />
-									<div className="text-xs">
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+									{/* 									<div className="text-xs">
+										<div className="flex p-2 text-sm font-normal leading-6 text-indigo-200 rounded-md group gap-x-3">
 											<strong>A:</strong> Aldersbestemt trinn
 										</div>
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+										<div className="flex p-2 text-sm font-normal leading-6 text-indigo-200 rounded-md group gap-x-3">
 											<strong>H:</strong> Herrer
 										</div>
-										<div className="group flex gap-x-3 rounded-md p-2 text-sm font-normal leading-6 text-indigo-200">
+										<div className="flex p-2 text-sm font-normal leading-6 text-indigo-200 rounded-md group gap-x-3">
 											<strong>D:</strong> Damer
 										</div>
-									</div>
+									</div> */}
 								</li>
 							</ul>
 						</nav>

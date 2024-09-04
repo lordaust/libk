@@ -1,98 +1,124 @@
-// sanity/schemas/documents/team.js
-export default {
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
 	name: 'team',
 	title: 'Team',
 	type: 'document',
 	fields: [
-		{
+		defineField({
+			name: 'teamTitle',
+			title: 'Unikt lagnavn',
+			description: 'Feltet brukes som navn i menyen, lister og på lagets side',
+			type: 'string',
+			initialValue: 'Lagnavn',
+		}),
+		defineField({
 			name: 'teamName',
-			title: 'Unique Team Name',
+			title: 'Slug/URL',
+			description: 'Trykk på knappen for å generere en url som ikke er i bruk',
 			type: 'slug',
 			options: {
-				source: 'teamTitle', // Correct source reference
-				default: 'lagnavn', // Default value if source is empty
-				maxLength: 200, // Will be ignored if slugify is set
+				source: 'teamTitle',
+				maxLength: 200,
 				slugify: (input: string) =>
 					input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
 			},
-		},
-		{
-			name: 'teamTitle',
-			title: 'Team Title',
-			type: 'string',
-			initialValue: 'Lagnavn', // Correctly using initialValue
-		},
-		{
+		}),
+		defineField({
 			name: 'teamCategory',
-			title: 'Category',
+			title: 'Kategori',
+			description:
+				'Kategorien brukes til å gruppere lagene på siden og vise hvilken type lag det er',
 			type: 'string',
-			initialValue: 'Aldersbestemt', // Default value
+			initialValue: 'Aldersbestemt',
 			options: {
 				list: [
 					{ title: 'Aldersbestemt', value: 'Aldersbestemt' },
 					{ title: 'Herrer', value: 'Herrer' },
 					{ title: 'Damer', value: 'Damer' },
 				],
-				layout: 'radio', // optional: you can display as radio buttons
+				layout: 'radio',
 			},
-			validation: (Rule: any) => Rule.required().error('Category is required'),
-		},
-		{
+			validation: (Rule: any) => Rule.required().error('Kategori er påkrevd'),
+		}),
+		defineField({
 			name: 'participationDescription',
-			title: 'Participation Description',
+			title: 'Krav til deltagelse',
+			description:
+				'Skal beskrive hvem som kan være med på laget som alder, kriterier, ferdighetsnivå, etc.',
 			type: 'text',
-			initialValue: 'Info om hvem som kan bli med kommer', // Correctly using initialValue
-		},
-		{
+			initialValue: 'Info om hvem som kan bli med kommer',
+		}),
+		defineField({
 			name: 'contactPersonType',
-			title: 'Contact Person Type',
+			title: 'Kontaktperson/type',
+			description:
+				'Hvilken tittel eller rolle har personen på laget? Lagleder, oppmann, trener, materialforvalter, etc.',
 			type: 'string',
-			initialValue: 'Lagleder', // Correctly using initialValue
-		},
-		{
+			initialValue: 'Lagleder',
+		}),
+		defineField({
 			name: 'contactPerson',
-			title: 'Contact Person',
+			title: 'Kontaktperson',
+			description:
+				'Velg personen som er ansvarlig for laget og som kan motta henvendelser fra interesserte',
 			type: 'reference',
 			to: [{ type: 'person' }],
-			weak: true, // Enables weak references
-		},
-		{
+			weak: true,
+		}),
+		defineField({
 			name: 'trainingTimes',
-			title: 'Training Times',
+			title: 'Treningstider',
+			description:
+				'Registrer de ulike tidene det trenes eller spilles kamper (om det er fast). Anbefalt format: Mandag 18:00-19:30 i Kjennhallen',
 			type: 'array',
 			of: [{ type: 'string' }],
-		},
-		{
+		}),
+		defineField({
 			name: 'membershipCost',
-			title: 'Membership Cost',
+			title: 'Medlemskap kostnad',
+			description: 'Hvor mye koster det å være medlem av klubben/laget?',
 			type: 'number',
-		},
-		{
+		}),
+		defineField({
 			name: 'licenseCost',
-			title: 'License Cost',
+			title: 'Treningsvagift kostnad',
+			description:
+				'Hvor mye koster lisensen for å delta på treninger og kamper?',
 			type: 'number',
-		},
-		{
+		}),
+		defineField({
 			name: 'spondCode',
-			title: 'Spond Code',
+			title: 'Spond kode',
+			description: 'Koden som brukes for å melde seg på gruppen i Spond',
 			type: 'string',
-			initialValue: '', // Correctly using initialValue
-		},
-		{
+			initialValue: '',
+		}),
+		defineField({
 			name: 'teamLink',
-			title: 'Team Link/URL',
+			title: 'Ekstern lag link/URL',
+			description: 'Lenke til ekstern side som er relevant for laget om noen',
 			type: 'string',
-			initialValue: '', // Correctly using initialValue
-		},
-		{
+			initialValue: '',
+			readOnly: true,
+			deprecated: {
+				reason: 'Use the "name" field instead',
+			},
+			hidden: ({ value }) => (value === undefined ? true : false),
+		}),
+		//TODO: Denne han være litt kul å vise frem
+		defineField({
 			name: 'teamLongDescription',
-			title: 'Team Long Description',
+			title: 'kort lagbeskrivelse',
+			description: 'Skriv gjerne en kort selgende beskrivelse av laget',
 			type: 'text',
-			initialValue: 'Lagbeskrivelse', // Correctly using initialValue
-		},
-		{
+			initialValue: 'Lagbeskrivelse',
+		}),
+		defineField({
 			name: 'teamDescRichText',
-			title: 'Team Description RichText',
+			title: 'Utfyllende lagbeskrivelse riktekst',
+			description:
+				'Her kan du skrive en lengre beskrivelse av laget og hva som er spesielt med det, eller informasjon dersom det er relevant',
 			type: 'array',
 			of: [{ type: 'block' }],
 			initialValue: [
@@ -106,18 +132,65 @@ export default {
 					],
 				},
 			],
-		},
-		{
+		}),
+		defineField({
 			name: 'sortorderValue',
-			title: 'Sortorder value (1-10)',
+			title: 'Sorteringsrekkefølge (1-10)',
+			description: 'Brukes til å sortere lagene i menyen og på lagoversikten',
 			type: 'number',
-			initialValue: 10, // Correctly using initialValue
+			initialValue: 10,
+		}),
+		defineField({
+			name: 'activeState',
+			title: 'Aktiv?',
+			description:
+				'Om laget ikke lenger eksisteres kan det skrus av her slik at det fjernes fra lister og menyer',
+			type: 'boolean',
+			initialValue: true,
+		}),
+	],
+	preview: {
+		select: {
+			title: 'teamTitle',
+			subtitle: 'teamCategory',
+			media: 'contactPerson.photo',
+			activeState: 'activeState',
+		},
+		prepare(selection: any) {
+			const { title, subtitle, media, activeState } = selection
+			const activeBadge = activeState ? '✅' : '❌'
+			return {
+				title: `${title} ${activeBadge}`,
+				subtitle,
+				media,
+			}
+		},
+	},
+	orderings: [
+		{
+			title: 'Sorteringsrekkefølge',
+			name: 'sortorderValueAsc',
+			by: [{ field: 'sortorderValue', direction: 'asc' }],
 		},
 		{
-			name: 'activeState',
-			title: 'Active?',
-			type: 'boolean',
-			initialValue: false, // Correctly using initialValue
+			title: 'Lagnavn A-Å',
+			name: 'teamTitleAsc',
+			by: [{ field: 'teamTitle', direction: 'asc' }],
+		},
+		{
+			title: 'Lagnavn Å-A',
+			name: 'teamTitleDesc',
+			by: [{ field: 'teamTitle', direction: 'desc' }],
+		},
+		{
+			title: 'Kategori A-Å',
+			name: 'teamCategoryAsc',
+			by: [{ field: 'teamCategory', direction: 'asc' }],
+		},
+		{
+			title: 'Kategori Å-A',
+			name: 'teamCategoryDesc',
+			by: [{ field: 'teamCategory', direction: 'desc' }],
 		},
 	],
-}
+})

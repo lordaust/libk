@@ -1,4 +1,3 @@
-// sanity/schemas/documents/person.js
 export default {
 	name: 'person',
 	title: 'Person',
@@ -6,43 +5,53 @@ export default {
 	fields: [
 		{
 			name: 'name',
-			title: 'Name',
+			title: 'Fullt navn',
+			description:
+				'Navnet som vises på siden for nyheter, lagansvarlige eller klubbinfo/styremedlemmer',
 			type: 'string',
 			initialValue: 'Navn',
 		},
 		{
 			name: 'email',
-			title: 'Email',
+			title: 'Epost',
+			description:
+				'Eposten man kan kontakte vedkommende på om man har spørsmål',
 			type: 'email',
 			initialValue: 'person@epost.com',
 		},
 		{
 			name: 'phone',
-			title: 'Phone',
+			title: 'Telefonnummer',
+			description: 'Telefonnummeret man kan konktaktes',
 			type: 'number',
-			initialValue: 987654321,
 		},
 		{
 			name: 'role',
-			title: 'Role',
+			title: 'Rolle i klubben',
+			description:
+				'F.eks. trener, lagleder, styremedlem, medlem, kontaktperson, etc.',
 			type: 'string',
-			initialValue: 'Medlem/Styremedlem/Trener/Kontaktperson',
 		},
 		{
 			name: 'linkedIn',
-			title: 'LinkedIn',
+			title: 'LinkedIn profil',
+			description:
+				'Mest for styremedlemmer for å virke proffe med LinkedIn profil dersom man har det. Bygger tillit.',
 			type: 'url',
 			initialValue: '',
 		},
 		{
 			name: 'description',
-			title: 'Description',
+			title: 'kort beskrivelse',
+			description: 'Brukes på lag- og styresider for å beskrive personen',
 			type: 'array',
 			of: [{ type: 'block' }],
 		},
 		{
 			name: 'photo',
-			title: 'Photo',
+			title: 'Bilde ',
+			description:
+				'Last opp ellervelg bilde. Optimalt format er .png med 219x219 i oppløsning.',
 			type: 'image',
 			options: {
 				hotspot: true, // <-- Defaults to false
@@ -51,7 +60,9 @@ export default {
 				{
 					name: 'caption',
 					type: 'string',
-					title: 'Caption',
+					title: 'Undertittel / Alt tekst',
+					description:
+						'Brukes for å beskrive bildet for skjermlesere og søkemotorer',
 					initialValue: 'Profilbilde av personen',
 				},
 			],
@@ -59,20 +70,71 @@ export default {
 		{
 			name: 'boardMember',
 			title: 'I styret?',
+			description:
+				'Brukes for å filtrere bort andre medlemmer på ledelsen-sidene, og tilganger',
 			type: 'boolean',
 			initialValue: false,
 		},
 		{
 			name: 'sortorderValue',
-			title: 'Sortorder value (1-10)',
+			title: 'Sorteringsverdi (1-10 -> lav er bra)',
+			description: 'Brukes til å sortere personene på lag- og styresidene',
 			type: 'number',
 			initialValue: 10,
 		},
 		{
 			name: 'activeState',
-			title: 'Active?',
+			title: 'Aktiv?',
+			description:
+				'Om personen ikke lenger er aktiv i klubben kan det skrus av her slik at det fjernes fra lister og menyer',
 			type: 'boolean',
 			initialValue: true,
+		},
+	],
+	preview: {
+		select: {
+			title: 'name',
+			subtitle: 'role',
+			media: 'photo',
+			boardMember: 'boardMember',
+			activeState: 'activeState',
+		},
+		prepare(selection: any) {
+			const { title, subtitle, media, boardMember, activeState } = selection
+			const boardBadge = boardMember ? '🛠️' : ''
+			const activeBadge = activeState ? '✅' : '❌'
+			return {
+				title: `${title} ${activeBadge}`,
+				subtitle: `${boardBadge} ${subtitle}`,
+				media,
+			}
+		},
+	},
+	orderings: [
+		{
+			title: 'Sorteringsverdi',
+			name: 'sortorderValueAsc',
+			by: [{ field: 'sortorderValue', direction: 'asc' }],
+		},
+		{
+			title: 'Navn A-Å',
+			name: 'nameAsc',
+			by: [{ field: 'name', direction: 'asc' }],
+		},
+		{
+			title: 'Navn Å-A',
+			name: 'nameDesc',
+			by: [{ field: 'name', direction: 'desc' }],
+		},
+		{
+			title: 'Rolle A-Å',
+			name: 'roleAsc',
+			by: [{ field: 'role', direction: 'asc' }],
+		},
+		{
+			title: 'Rolle Å-A',
+			name: 'roleDesc',
+			by: [{ field: 'role', direction: 'desc' }],
 		},
 	],
 }

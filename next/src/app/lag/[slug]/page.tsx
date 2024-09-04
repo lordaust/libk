@@ -7,6 +7,7 @@ import TeamDetails from '@/ui/modules/TeamDetails'
 import Oss from '@/ui/modules/Oss'
 import Separator from '@/ui/modules/Separator'
 import Coach from '@/ui/modules/Coach'
+import fetchTeamFaqData from '@/lib/fetchTeamFaqData'
 
 type TeamPageProps = {
 	params: {
@@ -15,25 +16,27 @@ type TeamPageProps = {
 }
 
 const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
-	const team = await fetchTeamData(params.slug)
-	console.log(team)
+	const teamData = await fetchTeamData(params.slug)
+	const teamFaqData = await fetchTeamFaqData()
+	console.log(teamData)
+	console.log(teamFaqData)
 
 	// Check if team data is present
-	if (!team) {
+	if (!teamData) {
 		return <div>Loading...</div>
 	}
 	return (
 		<div>
 			<PageHeading
-				title={team.teamTitle}
-				description={team.teamLongDescription}
+				title={teamData.teamTitle}
+				description={teamData.teamLongDescription}
 			/>
-			<Coach coach={team.contactPerson} />
+			<Coach coach={teamData.contactPerson} />
 			<Separator />
-			<TeamDetails team={team} />
+			<TeamDetails team={teamData} />
 			<Separator />
 
-			<Oss />
+			<Oss questions={teamFaqData} />
 		</div>
 	)
 }

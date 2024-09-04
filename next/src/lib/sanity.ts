@@ -5,14 +5,21 @@ import {
 } from 'next-sanity'
 import dev from '@/lib/env'
 export { groq } from 'next-sanity'
+import imageUrlBuilder from '@sanity/image-url'
 
 const sanityClient = createClient({
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-	dataset: 'production',
-	apiVersion: '2023-12-03',
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+	apiVersion: process.env.SANITY_API_VERSION || '2023-09-04',
 	useCdn: !dev,
 })
 
+const builder = imageUrlBuilder(sanityClient)
+
+export function urlFor(source: any) {
+	//TODO: return builder.image(source).auto('format').url() <- Støtte for autoformat i fremtiden?
+	return builder.image(source).url()
+}
 export function fetchSanity<T = any>(
 	query: string,
 	{

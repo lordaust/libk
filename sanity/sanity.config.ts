@@ -2,6 +2,10 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import defaultDocumentNode from './src/defaultDocumentNode'
 import structure from './src/structure'
+import { sharedNotesNotepadPlugin } from 'sanity-plugin-shared-notes'
+import { draftReviewPluginV3 } from 'sanity-plugin-draft-review-v3'
+
+import { lighthousePlugin } from 'sanity-lighthouse-plugin'
 import {
 	dashboardTool,
 	projectInfoWidget,
@@ -16,13 +20,16 @@ export default defineConfig({
 	name: 'libk',
 	title: 'ADMIN PANEL (CMS)',
 
-	projectId: 'hkdejsji',
-	dataset: 'production',
+	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
 
 	plugins: [
 		structureTool({ defaultDocumentNode, structure }),
 		dashboardTool({ widgets: [projectInfoWidget(), projectUsersWidget()] }),
 		visionTool(),
+		sharedNotesNotepadPlugin(), //TODO: Denne er muligå vise
+		draftReviewPluginV3({}), //TODO: Denne er mulig å vise
+		lighthousePlugin(), //TODO: Denne er mulig å vise
 	],
 
 	schema: {

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function partnere() {
+export default function PartnerDetaljer() {
 	return (
 		<div className="py-24 sm:py-32">
 			<div className="mx-auto max-w-7xl">

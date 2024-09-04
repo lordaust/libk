@@ -1,10 +1,12 @@
 // documents
 import site from './documents/site'
 import page from './documents/page'
-import blogPost from './documents/blog.post'
-import blogCategory from './documents/blog.category'
+import blogPost from './documents/blogpost'
+import blogCategory from './documents/blogcategory'
 import person from './documents/person'
 import team from './documents/team'
+import faq from './documents/faq'
+import attachment from './documents/attachment'
 
 // objects
 import cta from './objects/cta'
@@ -26,6 +28,8 @@ export const schemaTypes = [
 	blogCategory,
 	person,
 	team,
+	faq,
+	attachment,
 
 	// objects
 	cta,
