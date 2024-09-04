@@ -1,8 +1,7 @@
-import getSite from '@/lib/getSite'
 import navigation from './footer_data'
 
 export default async function Footer() {
-	const { title } = await getSite()
+	const title = 'Lørenskog Innebandyklubb'
 
 	return (
 		<footer className="bg-white">
