@@ -29,7 +29,6 @@ const structure: StructureResolver = (S, context) =>
 			S.listItem()
 				.title('Fast innhold')
 				.icon(() => null), // Remove icon
-			list(S, 'Enkeltsider', 'page').icon(VscCopy),
 
 			// Section Header: Konfigurasjon
 			S.divider(),
