@@ -18,8 +18,8 @@ type TeamPageProps = {
 const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
 	const teamData = await fetchTeamData(params.slug)
 	const teamFaqData = await fetchTeamFaqData()
-	console.log(teamData)
-	console.log(teamFaqData)
+	//console.log(teamData)
+	//console.log(teamFaqData)
 
 	// Check if team data is present
 	if (!teamData) {

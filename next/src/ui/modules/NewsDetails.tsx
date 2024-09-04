@@ -16,7 +16,7 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ news }) => {
 	if (!news) {
 		return <div>Loading...</div>
 	}
-	console.log(news?.categories)
+	//console.log(news?.categories)
 
 	let categoryTitle = 'No category'
 

@@ -29,7 +29,7 @@ const navigation = {
 		},
 		{
 			name: 'GitHub',
-			href: 'https://github.com/',
+			href: 'https://github.com/lordaust/libk',
 			icon: (props) => (
 				<svg fill="currentColor" viewBox="0 0 24 24" {...props}>
 					<path

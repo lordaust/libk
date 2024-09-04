@@ -5,7 +5,7 @@ import fetchFAQData from '@/lib/fetchFAQData'
 
 export default async function faq() {
 	const faqData = await fetchFAQData()
-	console.log(faqData)
+	//console.log(faqData)
 	return (
 		<div>
 			<PageHeading

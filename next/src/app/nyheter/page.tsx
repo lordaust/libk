@@ -9,8 +9,8 @@ export default async function nyheter() {
 	const featuredPost = BlogData[0]
 	const posts = BlogData.slice(1)
 
-	console.log(featuredPost)
-	console.log(posts)
+	//console.log(featuredPost)
+	//console.log(posts)
 
 	return (
 		<div>

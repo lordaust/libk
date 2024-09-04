@@ -7,7 +7,7 @@ import Separator from '@/ui/modules/Separator'
 
 export default async function Lag() {
 	const teamsData = await fetchTeamsData()
-	console.log(teamsData)
+	//console.log(teamsData)
 	return (
 		<div>
 			<PageHeading

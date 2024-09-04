@@ -15,7 +15,7 @@ type NewsDetailPageProps = {
 
 const NewsDetail: NextPage<NewsDetailPageProps> = async ({ params }) => {
 	const newsDetailData = await fetchNewsDetailData(params.slug)
-	console.log(newsDetailData)
+	//console.log(newsDetailData)
 
 	// Check if team data is present
 	if (!newsDetailData) {

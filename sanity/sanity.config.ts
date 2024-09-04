@@ -16,15 +16,6 @@ import { schemaTypes } from './schemas'
 
 const singletonTypes = ['site']
 
-console.log(
-	'process.env.NEXT_PUBLIC_SANITY_PROJECT_ID',
-	process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-)
-console.log(
-	'process.env.NEXT_PUBLIC_SANITY_DATASET',
-	process.env.NEXT_PUBLIC_SANITY_DATASET,
-)
-
 export default defineConfig({
 	name: 'libk',
 	title: 'ADMIN PANEL (CMS)',
