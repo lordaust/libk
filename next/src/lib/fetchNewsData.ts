@@ -6,10 +6,7 @@ const fetchNewsData = async (): Promise<BlogPostType[]> => {
 	const query = groq`*[_type == "blogpost"] | order(publishDate desc) {
   _id,
   title,
-    slug {
-      current,
-      _type
-    },
+slug,
   body,
   publishDate,
 	 "authorId": author->_id,
