@@ -10,10 +10,10 @@ export default async function Lag() {
 	//console.log(teamsData)
 	return (
 		<div>
-			<PageHeading
+			{/* 			<PageHeading
 				title="Våre lag"
 				description="Her finner du våre registrerte lag. Finner du ikke ditt alderstrinn? Ta kontakt!"
-			/>
+			/> */}
 			<TeamsAndContacts teams={teamsData} />
 			<Separator />
 

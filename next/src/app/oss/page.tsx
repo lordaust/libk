@@ -8,10 +8,10 @@ export default async function faq() {
 	//console.log(faqData)
 	return (
 		<div>
-			<PageHeading
+			{/* 			<PageHeading
 				title="OSS/FAQ"
 				description="Her finner du typiske spørsmål vi får og svar på disse."
-			/>
+			/> */}
 			<Oss questions={faqData} />
 			<Separator />
 		</div>

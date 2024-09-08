@@ -13,10 +13,10 @@ export default async function Klubbinfo() {
 	//console.log(boardMembers)
 	return (
 		<div>
-			<PageHeading
+			{/* <PageHeading
 				title="Klubbinfo"
 				description="Her finner du all informasjon om klubben vår"
-			/>
+			/> */}
 			<BoardMembers boardMembers={boardMembers} />
 			<Separator />
 			<Oss questions={boardFaqMembers} />

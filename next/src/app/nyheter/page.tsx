@@ -14,10 +14,10 @@ export default async function nyheter() {
 
 	return (
 		<div>
-			<PageHeading
+			{/* 			<PageHeading
 				title="Nyheter"
 				description="Her finner du våre nyhetssaker. Følg med for oppdateringer!"
-			/>
+			/> */}
 			<FAQList featuredPost={featuredPost} posts={posts} />
 			<Separator />
 		</div>

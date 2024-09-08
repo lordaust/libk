@@ -3,6 +3,7 @@ import {
 	CalendarIcon,
 	ChartPieIcon,
 	DocumentDuplicateIcon,
+	ClockIcon,
 	ClipboardDocumentListIcon,
 	FolderIcon,
 	HomeIcon,
@@ -23,6 +24,12 @@ const navigation = [
 		name: 'Våre lag',
 		href: '/lag',
 		icon: UsersIcon,
+		current: false,
+	},
+	{
+		name: 'Treninger',
+		href: '/treninger',
+		icon: ClockIcon,
 		current: false,
 	},
 	{

@@ -1,6 +1,8 @@
 import Forside from '@/ui/forside'
 import Nav from '@/ui/nav'
 import Footer from '@/ui/footer'
+import Separator from '@/ui/modules/Separator'
+
 // import { GoogleTagManager } from '@next/third-parties/google'
 import '@/styles/app.css'
 
@@ -33,6 +35,8 @@ export default function RootLayout({
 					</nav>
 					<div className="ml-5 flex-1 p-8">
 						<Forside />
+						<Separator />
+
 						{children}
 						<Footer />
 					</div>
