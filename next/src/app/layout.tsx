@@ -7,6 +7,7 @@ import Separator from '@/ui/modules/Separator'
 import '@/styles/app.css'
 
 import { Poppins } from 'next/font/google'
+import fetchTeamsData from '@/lib/fetchTeamsData'
 
 // Configure the Poppins font
 const poppins = Poppins({
@@ -21,17 +22,20 @@ export const metadata = {
 		'Innebandy for alle. Vi har lag for alle aldre og nivåer. Velkommen til Lørenskog Innebandyklubb.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
+	const teams = await fetchTeamsData()
+	console.log(teams)
+
 	return (
 		<html className="h-full bg-white" lang="no">
 			<body className={poppins.className}>
 				<div className="flex h-full">
 					<nav className="bg-slate_blue h-full w-64">
-						<Nav />
+						<Nav teams={teams} />
 					</nav>
 					<div className="ml-5 flex-1 p-8">
 						<Forside />
