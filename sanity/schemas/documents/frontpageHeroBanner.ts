@@ -43,7 +43,8 @@ export default defineType({
 			name: 'images',
 			title: 'Bilder',
 			type: 'array',
-			description: 'Opplast inntil 5 bilder som vises på forsiden.',
+			description:
+				'Opplast inntil 5 bilder som vises på forsiden. Ideell størrelse er 400*528 (breddexhøyde).',
 			of: [{ type: 'image', options: { hotspot: true } }],
 			validation: (Rule: any) =>
 				Rule.required()
