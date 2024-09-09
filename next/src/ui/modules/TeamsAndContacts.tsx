@@ -4,6 +4,13 @@ import { TeamType } from '@/types/types'
 type TeamsDetailsProps = {
 	teams: TeamType[]
 }
+const truncateText = (text: string, wordLimit: number) => {
+	if (!text) return '' // Return an empty string if text is null or undefined
+	const words = text.split(' ')
+	return words.length > wordLimit
+		? words.slice(0, wordLimit).join(' ') + '...'
+		: text
+}
 
 export default function TeamsAndContacts({ teams }: TeamsDetailsProps) {
 	return (
@@ -45,12 +52,12 @@ export default function TeamsAndContacts({ teams }: TeamsDetailsProps) {
 								</span>
 
 								{/* Team Title and Coach Info */}
-								<div className="flex w-full flex-col justify-between">
+								<div className="flex w-full max-w-lg flex-col justify-between">
 									<p className="text-lg font-semibold text-gray-900">
 										{team.teamTitle}
 									</p>
 									<p className="mt-1 text-xs text-gray-500">
-										{team.contactPerson.name}
+										{truncateText(team.teamLongDescription, 50)}
 									</p>
 								</div>
 							</div>
@@ -59,6 +66,10 @@ export default function TeamsAndContacts({ teams }: TeamsDetailsProps) {
 							<div className="flex shrink-0 items-center gap-x-4">
 								{/* Coach Email and Phone */}
 								<div className="hidden flex-col items-end sm:flex">
+									<p className="mt-1 text-xs text-gray-500">
+										{team.contactPerson.name}
+									</p>
+
 									<p className="text-sm text-gray-900">
 										{team.contactPerson.email}
 									</p>

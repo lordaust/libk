@@ -56,6 +56,9 @@ export const customComponents: PortableTextComponents = {
 		strong: ({ children }) => (
 			<strong className="font-semibold text-gray-900">{children}</strong>
 		),
+		p: ({ children }) => (
+			<strong className="font-normal text-gray-900">{children}</strong>
+		),
 		em: ({ children }) => <em className="italic text-gray-700">{children}</em>,
 		link: ({ value, children }) => (
 			<a

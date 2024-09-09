@@ -28,7 +28,6 @@ export default async function RootLayout({
 	children: React.ReactNode
 }) {
 	const teams = await fetchTeamsData()
-	console.log(teams)
 
 	return (
 		<html className="h-full bg-white" lang="no">

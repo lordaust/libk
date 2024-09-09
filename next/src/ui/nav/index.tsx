@@ -23,7 +23,7 @@ export default function NavBar({ teams }: NavBarProps) {
 	return (
 		<div className="mt-10">
 			{/* Mobile Hamburger Menu */}
-			<div className="-center justify-between px-4 lg:hidden lg:hidden">
+			<div className="justify-between px-4 -center lg:hidden">
 				<button
 					type="button"
 					className="text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
