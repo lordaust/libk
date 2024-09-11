@@ -26,7 +26,7 @@ export default defineType({
 				Rule.required()
 					.min(50)
 					.max(100)
-					.warning('Undertittelen bør være mellom 50 og 200 tegn.'),
+					.warning('Undertittelen bør være mellom 50 og 100 tegn.'),
 		}),
 		defineField({
 			name: 'focus',
@@ -55,6 +55,11 @@ export default defineType({
 			title: 'Infografikk/statistikk',
 			type: 'array',
 			of: [{ type: 'statItem' }],
+			validation: (Rule: any) =>
+				Rule.required()
+					.min(1)
+					.max(3)
+					.error('Du må legge til minst én infografikk, maksimalt tre.'),
 		}),
 	],
 })

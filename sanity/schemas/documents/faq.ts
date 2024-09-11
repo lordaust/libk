@@ -9,15 +9,18 @@ export default {
 			description:
 				'Spørsmålet som vises på FAQ siden og på oss-komponenter på andre sider',
 			type: 'string',
-			validation: (Rule: any) => Rule.required(),
+			validation: (Rule: any) => Rule.required().error('Spørsmål er påkrevd'),
 		},
 		{
 			name: 'answer',
 			title: 'Svar',
 			description:
-				'Svaret på spørsmålet som stilles. Max 255 tegn for lesbarhet og konsistens.',
+				'Svaret på spørsmålet som stilles. Max 500 tegn for lesbarhet og konsistens.',
 			type: 'text',
-			validation: (Rule: any) => Rule.required(),
+			validation: (Rule: any) =>
+				Rule.required()
+					.max(500)
+					.error('Svaret må være påkrevd og ikke overstige 500 tegn.'),
 		},
 		{
 			name: 'category',
@@ -34,6 +37,7 @@ export default {
 					// Add more categories as needed
 				],
 			},
+			validation: (Rule: any) => Rule.required().error('Kategori er påkrevd'),
 		},
 		{
 			name: 'attachments',
@@ -42,10 +46,6 @@ export default {
 				'Velg å legge til et eller flere vedlegg som kan lastes ned under spørsmålet.',
 			type: 'array',
 			of: [
-				/*	{
-					type: 'reference', // This allows selecting existing attachments
-					to: [{ type: 'attachment' }],
-				}, */
 				{
 					type: 'attachment', // This allows uploading new attachments directly
 				},
@@ -56,7 +56,11 @@ export default {
 			title: 'Sortering',
 			type: 'number',
 			description: 'Jo høyere tall jo lavere ned på siden',
-			validation: (Rule: any) => Rule.required().min(0).integer(),
+			validation: (Rule: any) =>
+				Rule.required()
+					.min(0)
+					.integer()
+					.error('Sortering er påkrevd og må være et positivt heltall.'),
 		},
 	],
 	preview: {

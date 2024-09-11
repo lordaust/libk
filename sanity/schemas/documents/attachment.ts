@@ -1,5 +1,3 @@
-// /sanity/schemas/attachment.ts
-
 import { defineType, defineField } from 'sanity'
 
 export default defineType({
@@ -12,7 +10,11 @@ export default defineType({
 			title: 'Dokumentets tittel',
 			description: 'Dette vises i utlistinger og nedtrekkslister',
 			type: 'string',
-			validation: (Rule) => Rule.required().min(3).max(80),
+			validation: (Rule) =>
+				Rule.required()
+					.min(3)
+					.max(80)
+					.error('Tittel er påkrevd, og må være mellom 3 og 80 tegn.'),
 		}),
 		defineField({
 			name: 'description',
@@ -20,7 +22,8 @@ export default defineType({
 			description:
 				'Beskrivelsen vises kun i Sanity Studio når man ser på dokumentet, men kan brukes til å beskrive innholdet på nettsiden om vi vil. Max 200 tegn',
 			type: 'text',
-			validation: (Rule) => Rule.max(200),
+			validation: (Rule) =>
+				Rule.max(200).error('Beskrivelsen kan ikke overstige 200 tegn.'),
 		}),
 		defineField({
 			name: 'file',
@@ -30,8 +33,10 @@ export default defineType({
 			type: 'file',
 			options: {
 				storeOriginalFilename: true,
+				accept:
+					'application/pdf, image/*, application/vnd.ms-excel, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document', // Specify allowed file types
 			},
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) => Rule.required().error('Fila er påkrevd.'),
 		}),
 	],
 	preview: {

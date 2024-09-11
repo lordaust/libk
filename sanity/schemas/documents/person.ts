@@ -10,6 +10,7 @@ export default {
 				'Navnet som vises på siden for nyheter, lagansvarlige eller klubbinfo/styremedlemmer',
 			type: 'string',
 			initialValue: 'Navn',
+			validation: (Rule: any) => Rule.required().error('Navn er påkrevd'),
 		},
 		{
 			name: 'email',
@@ -18,12 +19,20 @@ export default {
 				'Eposten man kan kontakte vedkommende på om man har spørsmål',
 			type: 'email',
 			initialValue: 'person@epost.com',
+			validation: (Rule: any) =>
+				Rule.required().error(
+					'Epost er påkrevd. Bruk test@test.com om du ikke har det.',
+				),
 		},
 		{
 			name: 'phone',
 			title: 'Telefonnummer',
 			description: 'Telefonnummeret man kan konktaktes',
 			type: 'number',
+			validation: (Rule: any) =>
+				Rule.required().error(
+					'Telefonnummer er påkrevd. Bruk 00000000 om du ikke har det.',
+				),
 		},
 		{
 			name: 'role',
@@ -31,6 +40,7 @@ export default {
 			description:
 				'F.eks. trener, lagleder, styremedlem, medlem, kontaktperson, etc.',
 			type: 'string',
+			validation: (Rule: any) => Rule.required().error('Rolle er påkrevd'),
 		},
 		{
 			name: 'linkedIn',
@@ -66,6 +76,10 @@ export default {
 					initialValue: 'Profilbilde av personen',
 				},
 			],
+			validation: (Rule: any) =>
+				Rule.required().error(
+					'Bilde er påkrevd for styremedlemmer. Bruk placeholderbilde "bilde mangler" fra galleriet om du ikke har et.',
+				),
 		},
 		{
 			name: 'boardMember',

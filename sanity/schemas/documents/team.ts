@@ -11,6 +11,7 @@ export default defineType({
 			description: 'Feltet brukes som navn i menyen, lister og på lagets side',
 			type: 'string',
 			initialValue: 'Lagnavn',
+			validation: (Rule) => Rule.required().error('Lagnavn er påkrevd'),
 		}),
 		defineField({
 			name: 'teamName',
@@ -23,6 +24,7 @@ export default defineType({
 				slugify: (input: string) =>
 					input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
 			},
+			validation: (Rule) => Rule.required().error('Slug er påkrevd'),
 		}),
 		defineField({
 			name: 'teamCategory',
@@ -39,7 +41,7 @@ export default defineType({
 				],
 				layout: 'radio',
 			},
-			validation: (Rule: any) => Rule.required().error('Kategori er påkrevd'),
+			validation: (Rule) => Rule.required().error('Kategori er påkrevd'),
 		}),
 		defineField({
 			name: 'participationDescription',
@@ -48,6 +50,8 @@ export default defineType({
 				'Skal beskrive hvem som kan være med på laget som alder, kriterier, ferdighetsnivå, etc.',
 			type: 'text',
 			initialValue: 'Info om hvem som kan bli med kommer',
+			validation: (Rule) =>
+				Rule.required().error('Krav til deltagelse er påkrevd'),
 		}),
 		defineField({
 			name: 'contactPersonType',
@@ -65,6 +69,7 @@ export default defineType({
 			type: 'reference',
 			to: [{ type: 'person' }],
 			weak: true,
+			validation: (Rule) => Rule.required().error('Kontaktperson er påkrevd'),
 		}),
 		defineField({
 			name: 'trainingTimes',

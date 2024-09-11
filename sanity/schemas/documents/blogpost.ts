@@ -10,7 +10,7 @@ export default defineType({
 			title: 'Tittel',
 			description: 'Brukes som overskrift på siden',
 			type: 'string',
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) => Rule.required().error('Tittel er påkrevd'),
 		}),
 		defineField({
 			name: 'slug',
@@ -26,7 +26,7 @@ export default defineType({
 						.replace(/[^a-z0-9-]/g, '')
 						.slice(0, 200),
 			},
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) => Rule.required().error('Slug er påkrevd'),
 		}),
 		defineField({
 			name: 'description',
@@ -34,6 +34,10 @@ export default defineType({
 			description:
 				'Max 255 tegn som synes i nyhetsfeeden og på toppen av siden',
 			type: 'text',
+			validation: (Rule) =>
+				Rule.max(255)
+					.required()
+					.error('Ingress er påkrevd og kan ikke være lengre enn 255 tegn.'),
 		}),
 		defineField({
 			name: 'body',
@@ -49,6 +53,8 @@ export default defineType({
 							name: 'alt',
 							title: 'Alt Text',
 							type: 'string',
+							validation: (Rule) =>
+								Rule.required().error('Alt tekst er påkrevd for bilder.'),
 						}),
 						defineField({
 							name: 'caption',
@@ -59,6 +65,7 @@ export default defineType({
 					],
 				},
 			],
+			validation: (Rule) => Rule.required().error('Innhold er påkrevd.'),
 		}),
 		defineField({
 			name: 'categories',
@@ -72,6 +79,8 @@ export default defineType({
 					weak: true,
 				},
 			],
+			validation: (Rule) =>
+				Rule.required().min(1).error('Minst én kategori må velges.'),
 		}),
 		{
 			name: 'attachments',
@@ -83,6 +92,7 @@ export default defineType({
 				{
 					type: 'reference', // This allows selecting existing attachments
 					to: [{ type: 'attachment' }],
+					weak: true,
 				},
 			],
 		},
@@ -91,7 +101,7 @@ export default defineType({
 			title: 'Publisert dato',
 			description: 'Datoen vises som først publisert dato på siden.',
 			type: 'date',
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) => Rule.required().error('Publisert dato er påkrevd'),
 		}),
 		defineField({
 			name: 'author',
@@ -100,7 +110,7 @@ export default defineType({
 			type: 'reference',
 			to: [{ type: 'person' }],
 			weak: true,
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) => Rule.required().error('Forfatter er påkrevd'),
 		}),
 	],
 	preview: {
@@ -124,7 +134,7 @@ export default defineType({
 				Aktuellt: 'ℹ️',
 				Info: '👥',
 				Arrangement: '💪',
-				Styreinfo: '🏛️', // Added emoji for "Styreinfo"
+				Styreinfo: '🏛️',
 			}
 
 			// Select the correct icon or fallback to a default one

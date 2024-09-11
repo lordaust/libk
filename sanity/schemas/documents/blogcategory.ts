@@ -10,6 +10,12 @@ export default defineType({
 		defineField({
 			name: 'title',
 			type: 'string',
+			title: 'Kategoriens tittel',
+			validation: (Rule) =>
+				Rule.required()
+					.min(3)
+					.max(50)
+					.error('Tittel er påkrevd, og må være mellom 3 og 50 tegn.'),
 		}),
 	],
 })
