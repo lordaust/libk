@@ -25,7 +25,7 @@ slug,
   },
 }
 `
-	return await sanityClient.fetch(query)
+	return await sanityClient.fetch(query, {}, { cache: 'no-store' })
 }
 
 export default fetchNewsData

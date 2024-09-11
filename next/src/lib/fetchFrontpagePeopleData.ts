@@ -21,7 +21,7 @@ const fetchFrontpagePeopleData = async (): Promise<PersonType[]> => {
     }
   `
 
-	return await sanityClient.fetch(query)
+	return await sanityClient.fetch(query, {}, { cache: 'no-store' })
 }
 
 export default fetchFrontpagePeopleData

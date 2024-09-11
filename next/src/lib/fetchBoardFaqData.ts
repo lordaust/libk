@@ -10,7 +10,7 @@ const fetchTeamFAQData = async (): Promise<FaqType[]> => {
     category,
     order
   }`
-	return await sanityClient.fetch(query)
+	return await sanityClient.fetch(query, {}, { cache: 'no-store' })
 }
 
 export default fetchTeamFAQData

@@ -3,16 +3,6 @@ import fetchFrontpagePeopleData from '@/lib/fetchFrontpagePeopleData'
 const FrontpageClubMembers = async () => {
 	const people = await fetchFrontpagePeopleData()
 
-	const team = [
-		{
-			name: 'Michael Foster',
-			role: 'Co-Founder / CTO',
-			imageUrl:
-				'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-		},
-		// More people...
-	]
-
 	return (
 		<div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
 			<div className="mx-auto max-w-2xl lg:mx-0">

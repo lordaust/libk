@@ -37,7 +37,7 @@ const fetchNewsData = async (slug: string): Promise<BlogPostType> => {
   }
 }
 `
-	return await sanityClient.fetch(query, { slug })
+	return await sanityClient.fetch(query, { slug }, { cache: 'no-store' })
 }
 
 export default fetchNewsData

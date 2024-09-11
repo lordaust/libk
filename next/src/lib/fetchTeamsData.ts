@@ -32,7 +32,7 @@ const fetchTeamsData = async (): Promise<TeamType[]> => {
   sortorderValue,
   activeState
 }`
-	return await sanityClient.fetch(query)
+	return await sanityClient.fetch(query, {}, { cache: 'no-store' })
 }
 
 export default fetchTeamsData

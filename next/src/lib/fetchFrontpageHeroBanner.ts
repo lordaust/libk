@@ -18,6 +18,10 @@ const frontpageHeroBannerQuery = groq`
 `
 
 export const fetchFrontpageHeroBanner = async () => {
-	const result = await sanityClient.fetch(frontpageHeroBannerQuery)
+	const result = await sanityClient.fetch(
+		frontpageHeroBannerQuery,
+		{},
+		{ cache: 'no-store' },
+	)
 	return result
 }

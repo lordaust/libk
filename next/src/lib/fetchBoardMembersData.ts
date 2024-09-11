@@ -20,7 +20,7 @@ const fetchBoardMembersData = async (): Promise<PersonType[]> => {
       },
   // Add any other fields you want to include
 }`
-	return await sanityClient.fetch(query)
+	return await sanityClient.fetch(query, {}, { cache: 'no-store' })
 }
 
 export default fetchBoardMembersData

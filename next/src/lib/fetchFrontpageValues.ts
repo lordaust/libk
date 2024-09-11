@@ -14,6 +14,10 @@ const frontpageValuesQuery = groq`
 `
 
 export const fetchFrontpageValues = async () => {
-	const result = await sanityClient.fetch(frontpageValuesQuery)
+	const result = await sanityClient.fetch(
+		frontpageValuesQuery,
+		{},
+		{ cache: 'no-store' },
+	)
 	return result
 }

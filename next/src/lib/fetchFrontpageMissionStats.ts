@@ -18,6 +18,10 @@ const frontpageMissionStatsQuery = groq`
 
 // Fetch function for mission stats
 export const fetchFrontpageMissionStats = async () => {
-	const result = await sanityClient.fetch(frontpageMissionStatsQuery)
+	const result = await sanityClient.fetch(
+		frontpageMissionStatsQuery,
+		{},
+		{ cache: 'no-store' },
+	)
 	return result
 }
