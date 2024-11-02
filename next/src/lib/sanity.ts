@@ -5,7 +5,7 @@ import {
 } from 'next-sanity'
 import dev from '@/lib/env'
 export { groq } from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
+//import imageUrlBuilder from '@sanity/image-url'
 import createImageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
@@ -16,7 +16,7 @@ const sanityClient = createClient({
 	useCdn: !dev,
 })
 
-const builder = imageUrlBuilder(sanityClient)
+//const builder = imageUrlBuilder(sanityClient)
 
 export const urlFor = (source: SanityImageSource) =>
 	createImageUrlBuilder({
