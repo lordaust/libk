@@ -1,7 +1,7 @@
 import React from 'react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
-import { urlFor } from '@/lib/sanity'
+import { urlFor2 } from '@/lib/sanity'
 
 //TODO: Custom components for Portable Text er det mulig å se på
 // Define custom components for Portable Text
@@ -11,7 +11,7 @@ export const customComponents: PortableTextComponents = {
 			return (
 				<div className="my-8">
 					<Image
-						src={urlFor(value.asset)}
+						src={urlFor2(value.asset)}
 						alt={value.alt || ' '}
 						width={438}
 						height={438}
