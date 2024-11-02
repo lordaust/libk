@@ -8,6 +8,7 @@ import Oss from '@/ui/modules/Oss'
 import Separator from '@/ui/modules/Separator'
 import Coach from '@/ui/modules/Coach'
 import fetchTeamFaqData from '@/lib/fetchTeamFaqData'
+import TeamImage from '@/ui/modules/TeamImage'
 
 type TeamPageProps = {
 	params: {
@@ -31,7 +32,16 @@ const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
 				title={teamData.teamTitle}
 				description={teamData.teamLongDescription}
 			/>
-			<Coach coach={teamData.contactPerson} />
+			<div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:space-x-6">
+				{teamData.teamImage && (
+					<TeamImage
+						image={teamData.teamImage}
+						alt={`${teamData.teamTitle} image`}
+					/>
+				)}
+				<Coach coach={teamData.contactPerson} />
+			</div>
+
 			<Separator />
 			<TeamDetails team={teamData} />
 			<Separator />

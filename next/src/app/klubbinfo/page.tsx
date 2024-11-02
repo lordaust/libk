@@ -10,7 +10,6 @@ export default async function Klubbinfo() {
 	const boardMembers = await fetchBoardMembersData()
 	const boardFaqMembers = await fetchBoardFaqData()
 
-	//console.log(boardMembers)
 	return (
 		<div>
 			{/* <PageHeading

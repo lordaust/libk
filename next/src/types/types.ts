@@ -37,6 +37,7 @@ export type TeamType = {
 	teamDescRichText: any // Assuming it's a rich text field, you might handle this differently
 	sortorderValue: number
 	activeState: boolean
+	teamImage?: string // Optional field for the team image URL
 }
 
 export type FaqType = {

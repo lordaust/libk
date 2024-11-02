@@ -43,6 +43,44 @@ export default defineType({
 			},
 			validation: (Rule) => Rule.required().error('Kategori er påkrevd'),
 		}),
+		//TODO: Denne han være litt kul å vise frem
+		defineField({
+			name: 'teamLongDescription',
+			title: 'Kort lagbeskrivelse',
+			description: 'Skriv gjerne en kort selgende beskrivelse av laget',
+			type: 'text',
+			initialValue: 'Lagbeskrivelse',
+		}),
+		defineField({
+			name: 'teamDescRichText',
+			title: 'Utfyllende lagbeskrivelse riktekst',
+			description:
+				'Her kan du skrive en lengre beskrivelse av laget og hva som er spesielt med det, eller informasjon dersom det er relevant',
+			type: 'array',
+			of: [{ type: 'block' }],
+			initialValue: [
+				{
+					_type: 'block',
+					children: [
+						{
+							_type: 'span',
+							text: 'Her kommer beskrivelsen.',
+						},
+					],
+				},
+			],
+		}),
+		defineField({
+			name: 'teamImage',
+			title: 'Lagbilde',
+			description:
+				'Last opp et bilde for laget som skal vises på lagets detaljside',
+			type: 'image',
+			options: {
+				hotspot: true, // Allows for focal point editing in the Sanity Studio
+			},
+			// No validation rule, making it optional
+		}),
 		defineField({
 			name: 'participationDescription',
 			title: 'Krav til deltagelse',
@@ -99,45 +137,7 @@ export default defineType({
 			type: 'string',
 			initialValue: '',
 		}),
-		defineField({
-			name: 'teamLink',
-			title: 'Ekstern lag link/URL',
-			description: 'Lenke til ekstern side som er relevant for laget om noen',
-			type: 'string',
-			initialValue: '',
-			readOnly: true,
-			deprecated: {
-				reason: 'Use the "name" field instead',
-			},
-			hidden: ({ value }) => (value === undefined ? true : false),
-		}),
-		//TODO: Denne han være litt kul å vise frem
-		defineField({
-			name: 'teamLongDescription',
-			title: 'kort lagbeskrivelse',
-			description: 'Skriv gjerne en kort selgende beskrivelse av laget',
-			type: 'text',
-			initialValue: 'Lagbeskrivelse',
-		}),
-		defineField({
-			name: 'teamDescRichText',
-			title: 'Utfyllende lagbeskrivelse riktekst',
-			description:
-				'Her kan du skrive en lengre beskrivelse av laget og hva som er spesielt med det, eller informasjon dersom det er relevant',
-			type: 'array',
-			of: [{ type: 'block' }],
-			initialValue: [
-				{
-					_type: 'block',
-					children: [
-						{
-							_type: 'span',
-							text: 'Her kommer beskrivelsen.',
-						},
-					],
-				},
-			],
-		}),
+
 		defineField({
 			name: 'sortorderValue',
 			title: 'Sorteringsrekkefølge (1-10)',

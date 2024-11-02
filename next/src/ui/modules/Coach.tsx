@@ -9,13 +9,6 @@ const BoardMembers: React.FC<TeamDetailsProps> = ({ coach }) => {
 		<div className="bg-white py-10 md:py-10">
 			<div className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">
 				<div className="flex flex-col gap-10 pt-12 sm:flex-row">
-					{coach.photoUrl && (
-						<img
-							alt={coach.photo?.caption}
-							src={coach.photoUrl}
-							className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
-						/>
-					)}
 					<div className="max-w-xl flex-auto">
 						<h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">
 							{coach.name}

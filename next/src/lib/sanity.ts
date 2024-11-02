@@ -6,6 +6,8 @@ import {
 import dev from '@/lib/env'
 export { groq } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
+import createImageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 const sanityClient = createClient({
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -16,10 +18,12 @@ const sanityClient = createClient({
 
 const builder = imageUrlBuilder(sanityClient)
 
-export function urlFor(source: any) {
-	//TODO: return builder.image(source).auto('format').url() <- Støtte for autoformat i fremtiden?
-	return builder.image(source).url()
-}
+export const urlFor = (source: SanityImageSource) =>
+	createImageUrlBuilder({
+		projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+		dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+	}).image(source)
+
 export function fetchSanity<T = any>(
 	query: string,
 	{
