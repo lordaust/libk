@@ -19,7 +19,7 @@ type TeamPageProps = {
 const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
 	const teamData = await fetchTeamData(params.slug)
 	const teamFaqData = await fetchTeamFaqData()
-	//console.log(teamData)
+	//	console.log(teamData.teamImage as { asset?: any; crop?: any; hotspot?: any })
 	//console.log(teamFaqData)
 
 	// Check if team data is present
@@ -35,7 +35,9 @@ const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
 			<div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:space-x-6">
 				{teamData.teamImage && (
 					<TeamImage
-						image={teamData.teamImage}
+						image={
+							teamData.teamImage as { asset?: any; crop?: any; hotspot?: any }
+						}
 						alt={`${teamData.teamTitle} image`}
 					/>
 				)}

@@ -5,7 +5,7 @@ import { urlFor } from '@/lib/sanity'
 
 type TeamImageProps = {
 	image: {
-		asset?: { _ref: string }
+		asset?: any
 		crop?: any
 		hotspot?: any
 	}
