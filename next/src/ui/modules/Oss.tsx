@@ -12,7 +12,7 @@ const Oss: React.FC<OssDetailsProps> = ({ questions }) => {
 				<div className="lg:grid lg:grid-cols-12 lg:gap-8">
 					<div className="lg:col-span-5">
 						<h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
-							Kansje du lurer på noe?
+							Kanskje du lurer på noe?
 						</h2>
 						<p className="mt-4 text-base leading-7 text-gray-600">
 							Vi har samlet noen av de vanligste spørsmålene vi får, som kanskje

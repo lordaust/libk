@@ -18,7 +18,7 @@ const FrontpageValues = async () => {
 
 	// Destructure the fetched data
 	const { title, subtitle, values } = frontpageValuesData
-	console.log(values)
+	//console.log(values)
 
 	return (
 		<div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">

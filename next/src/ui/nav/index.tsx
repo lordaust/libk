@@ -23,13 +23,13 @@ export default function NavBar({ teams }: NavBarProps) {
 	return (
 		<div className="mt-10">
 			{/* Mobile Hamburger Menu */}
-			<div className="justify-between px-4 -center lg:hidden">
+			<div className="-center justify-between px-4 lg:hidden">
 				<button
 					type="button"
 					className="text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
 					onClick={() => setSidebarOpen(true)}
 				>
-					<Bars3Icon className="w-6 h-6" aria-hidden="true" />
+					<Bars3Icon className="h-6 w-6" aria-hidden="true" />
 					<span className="sr-only">Open sidebar</span>
 				</button>
 			</div>
@@ -63,9 +63,9 @@ export default function NavBar({ teams }: NavBarProps) {
 							leaveFrom="translate-x-0"
 							leaveTo="-translate-x-full"
 						>
-							<Dialog.Panel className="relative flex flex-1 w-full max-w-xs bg-background_blue">
+							<Dialog.Panel className="relative flex w-full max-w-xs flex-1 bg-background_blue">
 								{/* Close button */}
-								<div className="absolute top-0 flex justify-center w-16 pt-5 left-full">
+								<div className="absolute left-full top-0 flex w-16 justify-center pt-5">
 									<button
 										type="button"
 										className="-m-2.5 p-2.5"
@@ -73,16 +73,16 @@ export default function NavBar({ teams }: NavBarProps) {
 									>
 										<span className="sr-only">Close sidebar</span>
 										<XMarkIcon
-											className="w-6 h-6 text-white"
+											className="h-6 w-6 text-white"
 											aria-hidden="true"
 										/>
 									</button>
 								</div>
 
 								{/* Sidebar content */}
-								<div className="flex flex-col px-6 pb-2 overflow-y-auto grow gap-y-5">
-									<nav className="flex flex-col flex-1">
-										<ul role="list" className="flex flex-col flex-1 gap-y-7">
+								<div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2">
+									<nav className="flex flex-1 flex-col">
+										<ul role="list" className="flex flex-1 flex-col gap-y-7">
 											<li>
 												<ul role="list" className="-mx-2 space-y-1">
 													{navigation.map((item) => (
@@ -115,7 +115,7 @@ export default function NavBar({ teams }: NavBarProps) {
 												<div className="text-xs font-semibold leading-6 text-indigo-200">
 													Våre lag
 												</div>
-												<ul role="list" className="mt-2 -mx-2 space-y-1">
+												<ul role="list" className="-mx-2 mt-2 space-y-1">
 													{teams.map((team) => (
 														<li key={team.teamName.current}>
 															<a
@@ -127,9 +127,7 @@ export default function NavBar({ teams }: NavBarProps) {
 																	'group flex gap-x-3 rounded-md bg-background_blue p-2 text-sm font-semibold leading-6',
 																)}
 															>
-																<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
-																	{team.teamCategory.charAt(0)}
-																</span>
+																<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white"></span>
 																<span className="truncate">
 																	{team.teamTitle}
 																</span>
@@ -149,9 +147,9 @@ export default function NavBar({ teams }: NavBarProps) {
 
 			{/* Static sidebar for desktop */}
 			<div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-				<div className="flex flex-col flex-1 bg-primary_blue">
-					<nav className="flex flex-col flex-1 ml-2">
-						<ul role="list" className="flex flex-col flex-1 gap-y-7">
+				<div className="flex flex-1 flex-col bg-primary_blue">
+					<nav className="ml-2 flex flex-1 flex-col">
+						<ul role="list" className="flex flex-1 flex-col gap-y-7">
 							<li>
 								<ul role="list" className="space-y-1">
 									{navigation.map((item) => (
@@ -196,9 +194,7 @@ export default function NavBar({ teams }: NavBarProps) {
 													'group flex gap-x-3 rounded-md bg-background_blue p-2 text-sm font-semibold leading-6',
 												)}
 											>
-												<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
-													{team.teamCategory.charAt(0)}
-												</span>
+												<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white"></span>
 												<span className="truncate">{team.teamTitle}</span>
 											</a>
 										</li>
