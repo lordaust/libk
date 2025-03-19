@@ -28,7 +28,7 @@ export default function PartnerDetaljer() {
 						</div>
 					</div>
 					<div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-						<div>
+						{/* 						<div>
 							<Image
 								className="w-auto"
 								src="/images/torshov_sport_logo_300.png"
@@ -36,7 +36,7 @@ export default function PartnerDetaljer() {
 								width={300}
 								height={150}
 							/>
-						</div>
+						</div> */}
 						<div>
 							<Image
 								className="w-auto"
@@ -46,7 +46,7 @@ export default function PartnerDetaljer() {
 								height={150}
 							/>
 						</div>
-						<div>
+						{/* 						<div>
 							<Image
 								className="w-auto"
 								src="/images/aya_sports_logo_300.png"
@@ -54,7 +54,7 @@ export default function PartnerDetaljer() {
 								width={300}
 								height={150}
 							/>
-						</div>
+						</div> */}
 						<div>
 							<Image
 								className="w-auto"
