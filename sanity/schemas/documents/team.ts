@@ -126,8 +126,7 @@ export default defineType({
 		defineField({
 			name: 'licenseCost',
 			title: 'Treningsvagift kostnad',
-			description:
-				'Hvor mye koster lisensen for å delta på treninger og kamper?',
+			description: 'Hvor mye koster treningsavgiften for å delta på treninger?',
 			type: 'number',
 		}),
 		defineField({

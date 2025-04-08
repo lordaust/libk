@@ -38,9 +38,9 @@ const TeamDetails: React.FC<TeamDetailsProps> = ({ team }) => {
 						Hva koster det?
 					</dt>
 					<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-						<strong>Treningsavgift</strong> {team.membershipCost} pr år <br />
+						<strong>Medlemskap: </strong> {team.membershipCost} pr år <br />
 						<br />
-						<strong>Lisens</strong> {team.licenseCost} pr år <br />
+						<strong>Treningsavgift: </strong> {team.licenseCost} pr år <br />
 					</dd>
 				</div>
 				<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
