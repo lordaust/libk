@@ -64,7 +64,7 @@ const FrontpageHero = async () => {
 						clipPath:
 							'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
 					}}
-					className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+					className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-brand to-navy-400 opacity-20"
 				/>
 			</div>
 			<div className="overflow-hidden">
@@ -72,10 +72,10 @@ const FrontpageHero = async () => {
 					<div className="mx-auto max-w-2xl gap-x-10 xl:mx-0 xl:flex xl:max-w-none xl:items-center">
 						<div className="w-full max-w-xl xl:shrink-0 xl:max-w-md 2xl:max-w-lg">
 							{/* Title and Subtitle from Sanity */}
-							<h1 className="text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+							<h1 className="text-balance font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-navy sm:text-6xl lg:text-7xl">
 								{title}
 							</h1>
-							<p className="relative mt-6 text-base leading-8 text-gray-600 sm:text-lg lg:max-w-none">
+							<p className="relative mt-6 text-base leading-8 text-navy-600 sm:text-lg lg:max-w-none">
 								{subtitle}
 							</p>
 						</div>
@@ -85,7 +85,7 @@ const FrontpageHero = async () => {
 									<img
 										alt={images[0].altText}
 										src={images[0].asset.url}
-										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 ease-out will-change-transform hover:-rotate-1 hover:scale-[1.03] hover:shadow-xl"
 									/>
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
@@ -95,7 +95,7 @@ const FrontpageHero = async () => {
 									<img
 										alt={images[1].altText}
 										src={images[1].asset.url}
-										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 ease-out will-change-transform hover:-rotate-1 hover:scale-[1.03] hover:shadow-xl"
 									/>
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
@@ -103,7 +103,7 @@ const FrontpageHero = async () => {
 									<img
 										alt={images[2].altText}
 										src={images[2].asset.url}
-										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 ease-out will-change-transform hover:-rotate-1 hover:scale-[1.03] hover:shadow-xl"
 									/>
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
@@ -113,7 +113,7 @@ const FrontpageHero = async () => {
 									<img
 										alt={images[3].altText}
 										src={images[3].asset.url}
-										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 ease-out will-change-transform hover:-rotate-1 hover:scale-[1.03] hover:shadow-xl"
 									/>
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
@@ -121,7 +121,7 @@ const FrontpageHero = async () => {
 									<img
 										alt={images[4].altText}
 										src={images[4].asset.url}
-										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+										className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 ease-out will-change-transform hover:-rotate-1 hover:scale-[1.03] hover:shadow-xl"
 									/>
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
