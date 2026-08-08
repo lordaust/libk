@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd next && npm install",
-    "dev": "cd next && exec ./node_modules/.bin/next dev",
-    "build": "cd next && exec ./node_modules/.bin/next build",
+    "dev": "cd next && ln -sf ../.env.development.local .env.development.local && npm install --no-audit --no-fund && exec ./node_modules/.bin/next dev",
+    "build": "cd next && npm install --no-audit --no-fund && exec ./node_modules/.bin/next build",
     "start": "cd next && exec ./node_modules/.bin/next start"
   },
   "author": "",
