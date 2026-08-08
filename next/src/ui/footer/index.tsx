@@ -4,7 +4,7 @@ export default async function Footer() {
 	const title = 'Lørenskog Innebandyklubb'
 
 	return (
-		<footer className="mt-8 border-t-4 border-brand bg-navy">
+		<footer className="mt-8 border-t-4 border-royal bg-navy">
 			<div className="mx-auto max-w-7xl overflow-hidden px-6 py-16 sm:py-20 lg:px-8">
 				<nav
 					className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
@@ -26,7 +26,7 @@ export default async function Footer() {
 						<a
 							key={item.name}
 							href={item.href}
-							className="text-navy-300 transition-colors hover:text-brand-300"
+							className="text-navy-300 transition-colors hover:text-royal-300"
 						>
 							<span className="sr-only">{item.name}</span>
 							<item.icon className="h-6 w-6" aria-hidden="true" />

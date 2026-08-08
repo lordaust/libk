@@ -5,8 +5,8 @@ export default function forside() {
 		<div>
 			<div className="flex items-center justify-between gap-4">
 				<div className="flex-1">
-					<span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-						<span className="h-px w-8 bg-brand" aria-hidden="true" />
+					<span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-royal">
+						<span className="h-px w-8 bg-royal" aria-hidden="true" />
 						Stiftet 1987
 					</span>
 					<h2 className="text-balance font-display text-3xl font-bold uppercase leading-[0.95] tracking-tight text-navy sm:text-5xl lg:text-6xl">

@@ -24,8 +24,8 @@ const FrontpageValues = async () => {
 	return (
 		<div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
 			<div className="mx-auto max-w-2xl lg:mx-0">
-				<span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-					<span className="h-px w-8 bg-brand" aria-hidden="true" />
+				<span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-royal">
+					<span className="h-px w-8 bg-royal" aria-hidden="true" />
 					Verdier
 				</span>
 				{/* Title from Sanity */}
@@ -42,15 +42,15 @@ const FrontpageValues = async () => {
 				{values.map((value) => (
 					<div
 						key={value.name}
-						className="group relative overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-card-hover"
+						className="group relative overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-royal/40 hover:shadow-card-hover"
 					>
 						<span
-							className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-brand transition-transform duration-300 group-hover:scale-x-100"
+							className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-royal transition-transform duration-300 group-hover:scale-x-100"
 							aria-hidden="true"
 						/>
-						<span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 ring-1 ring-brand-100">
+						<span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-royal-50 ring-1 ring-royal-100">
 							<CheckBadgeIcon
-								className="h-6 w-6 text-brand"
+								className="h-6 w-6 text-royal"
 								aria-hidden="true"
 							/>
 						</span>

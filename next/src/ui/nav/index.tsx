@@ -21,7 +21,7 @@ function LogoLockup({ onNavigate }: { onNavigate?: () => void }) {
 		<a
 			href="/"
 			onClick={onNavigate}
-			className="group flex items-center gap-3 rounded-lg px-1 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300"
+			className="group flex items-center gap-3 rounded-lg px-1 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-300"
 		>
 			<span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/95 shadow-sm ring-1 ring-white/20 transition-transform duration-200 group-hover:scale-105">
 				<Image
@@ -36,7 +36,7 @@ function LogoLockup({ onNavigate }: { onNavigate?: () => void }) {
 				<span className="font-display text-lg font-bold uppercase tracking-wide text-white">
 					Lørenskog
 				</span>
-				<span className="text-xs font-medium uppercase tracking-[0.18em] text-brand-300">
+				<span className="text-xs font-medium uppercase tracking-[0.18em] text-royal-300">
 					Innebandyklubb
 				</span>
 			</span>
@@ -62,9 +62,9 @@ export default function NavBar({ teams }: NavBarProps) {
 									aria-current={active ? 'page' : undefined}
 									className={classNames(
 										active
-											? 'bg-brand text-white shadow-sm'
+											? 'bg-royal text-white shadow-sm'
 											: 'text-navy-200 hover:bg-white/10 hover:text-white',
-										'group relative flex items-center gap-x-3 rounded-lg p-2 pl-3 text-sm font-semibold leading-6 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300',
+										'group relative flex items-center gap-x-3 rounded-lg p-2 pl-3 text-sm font-semibold leading-6 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-300',
 									)}
 								>
 									{active && (
@@ -91,7 +91,7 @@ export default function NavBar({ teams }: NavBarProps) {
 			</li>
 			<li>
 				<div className="flex items-center gap-2 px-2 text-xs font-semibold uppercase leading-6 tracking-[0.18em] text-navy-300">
-					<span className="h-px w-4 bg-brand" aria-hidden="true" />
+					<span className="h-px w-4 bg-royal" aria-hidden="true" />
 					Våre lag
 				</div>
 				<ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -106,9 +106,9 @@ export default function NavBar({ teams }: NavBarProps) {
 									aria-current={active ? 'page' : undefined}
 									className={classNames(
 										active
-											? 'bg-brand text-white shadow-sm'
+											? 'bg-royal text-white shadow-sm'
 											: 'text-navy-200 hover:bg-white/10 hover:text-white',
-										'group relative flex items-center gap-x-3 rounded-lg p-2 pl-3 text-sm font-semibold leading-6 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300',
+										'group relative flex items-center gap-x-3 rounded-lg p-2 pl-3 text-sm font-semibold leading-6 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-300',
 									)}
 								>
 									{active && (
@@ -121,7 +121,7 @@ export default function NavBar({ teams }: NavBarProps) {
 										className={classNames(
 											active
 												? 'border-white/40 bg-white/20 text-white'
-												: 'border-navy-500 bg-navy-700 text-navy-100 group-hover:border-brand group-hover:text-white',
+												: 'border-navy-500 bg-navy-700 text-navy-100 group-hover:border-royal group-hover:text-white',
 											'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-bold uppercase transition-colors duration-200',
 										)}
 									>
@@ -143,7 +143,7 @@ export default function NavBar({ teams }: NavBarProps) {
 			<div className="sticky top-0 z-40 flex items-center gap-x-4 border-b border-white/10 bg-navy px-4 py-3 shadow-sm sm:px-6 lg:hidden">
 				<button
 					type="button"
-					className="-m-2.5 rounded-md p-2.5 text-navy-100 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300"
+					className="-m-2.5 rounded-md p-2.5 text-navy-100 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-royal-300"
 					onClick={() => setSidebarOpen(true)}
 				>
 					<span className="sr-only">Åpne meny</span>

@@ -28,7 +28,7 @@
 	input:focus-visible,
 	textarea:focus-visible,
 	select:focus-visible {
-		outline: 2px solid #c8102e;
+		outline: 2px solid #2563eb;
 		outline-offset: 2px;
 		border-radius: 4px;
 	}
@@ -75,28 +75,28 @@
 		padding: 0.65em 1.25em;
 		border-radius: 0.5rem;
 		font-weight: 600;
-		background: #c8102e;
+		background: #2563eb;
 		color: #fff;
-		box-shadow: 0 8px 20px -10px rgba(200, 16, 46, 0.6);
+		box-shadow: 0 8px 20px -10px rgba(37, 99, 235, 0.6);
 		transition:
 			background-color 0.2s ease,
 			transform 0.2s ease,
 			box-shadow 0.2s ease;
 
 		&:hover {
-			background: #b20e29;
+			background: #1d4fd7;
 			transform: translateY(-1px);
-			box-shadow: 0 12px 26px -10px rgba(200, 16, 46, 0.7);
+			box-shadow: 0 12px 26px -10px rgba(37, 99, 235, 0.7);
 		}
 
 		&:focus-visible {
-			outline: 2px solid #c8102e;
+			outline: 2px solid #2563eb;
 			outline-offset: 2px;
 		}
 	}
 
 	.link {
-		color: #b20e29;
+		color: #1d4fd7;
 		text-decoration: underline;
 		text-underline-offset: 2px;
 		transition: text-decoration-thickness 0.15s ease;

@@ -52,7 +52,7 @@ const FrontpageMissionStats = async () => {
 							{statistics.map((stat) => (
 								<div
 									key={stat.label}
-									className="flex flex-col-reverse gap-y-2 rounded-2xl border border-navy-100 bg-navy-50/60 p-5 transition-colors hover:border-brand/40 sm:p-6"
+									className="flex flex-col-reverse gap-y-2 rounded-2xl border border-navy-100 bg-navy-50/60 p-5 transition-colors hover:border-royal/40 sm:p-6"
 								>
 									<dt className="text-sm font-medium leading-6 text-navy-500 sm:text-base">
 										{stat.label}
