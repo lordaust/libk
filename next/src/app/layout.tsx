@@ -32,11 +32,9 @@ export default async function RootLayout({
 	return (
 		<html className="h-full bg-white" lang="no">
 			<body className={poppins.className}>
-				<div className="flex h-full">
-					<nav className="bg-slate_blue h-full w-64">
-						<Nav teams={teams} />
-					</nav>
-					<div className="ml-5 flex-1 p-8">
+				<Nav teams={teams} />
+				<div className="lg:pl-72">
+					<div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
 						<Forside />
 						<Separator />
 
@@ -45,7 +43,6 @@ export default async function RootLayout({
 					</div>
 				</div>
 			</body>
-			{/* <GoogleTagManager gtmId='' /> */}
 		</html>
 	)
 }
