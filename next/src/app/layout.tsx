@@ -30,8 +30,8 @@ export default async function RootLayout({
 	const teams = await fetchTeamsData()
 
 	return (
-		<html className="h-full bg-white" lang="no">
-			<body className={poppins.className}>
+		<html className="h-full bg-white" lang="no" suppressHydrationWarning>
+			<body className={poppins.className} suppressHydrationWarning>
 				<Nav teams={teams} />
 				<div className="lg:pl-72">
 					<div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
