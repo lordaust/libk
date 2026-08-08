@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd next && npm install",
-    "dev": "cd next && ln -sf ../.env.development.local .env.development.local && npm install --no-audit --no-fund && exec ./node_modules/.bin/next dev",
-    "build": "cd next && npm install --no-audit --no-fund && exec ./node_modules/.bin/next build",
-    "start": "cd next && exec ./node_modules/.bin/next start"
+    "dev": "cd next && npm run dev",
+    "build": "cd next && npm run build",
+    "start": "cd next && npm run start"
   },
   "author": "",
   "license": "ISC"
