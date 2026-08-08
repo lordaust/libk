@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cd next && npm run dev",
-    "build": "cd next && npm run build",
-    "start": "cd next && npm run start"
+    "postinstall": "cd next && npm install",
+    "dev": "cd next && exec ./node_modules/.bin/next dev",
+    "build": "cd next && exec ./node_modules/.bin/next build",
+    "start": "cd next && exec ./node_modules/.bin/next start"
   },
   "author": "",
   "license": "ISC"
