@@ -26,7 +26,10 @@
 
 	._h {
 		text-wrap: balance;
-		font-weight: bold;
+		font-weight: 700;
+		font-family: var(--font-display), 'Poppins', sans-serif;
+		letter-spacing: -0.01em;
+		line-height: 1.05;
 	}
 
 	.h1 {
@@ -54,14 +57,36 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		gap: 0.5em;
 		text-align: center;
-		padding: 0.5em 1em;
-		background: #000;
+		padding: 0.65em 1.25em;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		background: #c8102e;
 		color: #fff;
+		box-shadow: 0 8px 20px -10px rgba(200, 16, 46, 0.6);
+		transition:
+			background-color 0.2s ease,
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+
+		&:hover {
+			background: #b20e29;
+			transform: translateY(-1px);
+			box-shadow: 0 12px 26px -10px rgba(200, 16, 46, 0.7);
+		}
+
+		&:focus-visible {
+			outline: 2px solid #c8102e;
+			outline-offset: 2px;
+		}
 	}
 
 	.link {
+		color: #b20e29;
 		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition: text-decoration-thickness 0.15s ease;
 
 		&:hover {
 			text-decoration-thickness: 2px;
