@@ -68,19 +68,19 @@ const FrontpageHero = async () => {
 				/>
 			</div>
 			<div className="overflow-hidden">
-				<div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-8">
-					<div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-						<div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+				<div className="mx-auto max-w-7xl px-6 pb-24 pt-24 sm:pt-60 lg:px-8 lg:pb-32 lg:pt-8">
+					<div className="mx-auto max-w-2xl gap-x-10 xl:mx-0 xl:flex xl:max-w-none xl:items-center">
+						<div className="w-full max-w-xl xl:shrink-0 xl:max-w-md 2xl:max-w-lg">
 							{/* Title and Subtitle from Sanity */}
-							<h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+							<h1 className="text-balance text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
 								{title}
 							</h1>
-							<p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+							<p className="relative mt-6 text-base leading-8 text-gray-600 sm:text-lg lg:max-w-none">
 								{subtitle}
 							</p>
 						</div>
-						<div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-							<div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+						<div className="mt-10 flex justify-center gap-4 sm:mt-14 sm:gap-6 xl:mt-0 xl:min-w-0 xl:flex-1 xl:justify-end xl:gap-8">
+							<div className="w-1/3 max-w-44 flex-none space-y-4 pt-8 sm:space-y-6 sm:pt-12 xl:w-auto xl:flex-1 xl:pt-36 2xl:pt-80">
 								<div className="relative">
 									<img
 										alt={images[0].altText}
@@ -90,7 +90,7 @@ const FrontpageHero = async () => {
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
 							</div>
-							<div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+							<div className="w-1/3 max-w-44 flex-none space-y-4 sm:space-y-6 xl:w-auto xl:flex-1 xl:pt-0">
 								<div className="relative">
 									<img
 										alt={images[1].altText}
@@ -108,7 +108,7 @@ const FrontpageHero = async () => {
 									<div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
 								</div>
 							</div>
-							<div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+							<div className="w-1/3 max-w-44 flex-none space-y-4 pt-8 sm:space-y-6 sm:pt-6 xl:w-auto xl:flex-1 xl:pt-16">
 								<div className="relative">
 									<img
 										alt={images[3].altText}
