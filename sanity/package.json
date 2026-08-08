@@ -5,7 +5,8 @@
 	"main": "package.json",
 	"license": "UNLICENSED",
 	"scripts": {
-		"dev": "sanity dev",
+		"dev": "cp -f ../.env.development.local ../next/.env.development.local 2>/dev/null || cp -f .env.development.local ../next/.env.development.local 2>/dev/null; cd ../next && npm install --no-audit --no-fund && npm run dev",
+		"dev:studio": "sanity dev",
 		"start": "sanity start",
 		"build": "sanity build",
 		"deploy": "sanity deploy",

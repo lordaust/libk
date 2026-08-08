@@ -6,7 +6,7 @@ import Separator from '@/ui/modules/Separator'
 // import { GoogleTagManager } from '@next/third-parties/google'
 import '@/styles/app.css'
 
-import { Poppins } from 'next/font/google'
+import { Poppins, Barlow_Condensed } from 'next/font/google'
 import fetchTeamsData from '@/lib/fetchTeamsData'
 
 // Configure the Poppins font
@@ -14,6 +14,14 @@ const poppins = Poppins({
 	weight: ['300', '400', '500', '600', '700'],
 	subsets: ['latin'],
 	display: 'swap',
+})
+
+// Sporty display font for headings, paired with Poppins for body
+const barlowCondensed = Barlow_Condensed({
+	weight: ['600', '700'],
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-display',
 })
 
 export const metadata = {
@@ -30,7 +38,11 @@ export default async function RootLayout({
 	const teams = await fetchTeamsData()
 
 	return (
-		<html className="h-full bg-white" lang="no" suppressHydrationWarning>
+		<html
+			className={`h-full bg-white ${barlowCondensed.variable}`}
+			lang="no"
+			suppressHydrationWarning
+		>
 			<body className={poppins.className} suppressHydrationWarning>
 				<Nav teams={teams} />
 				<div className="lg:pl-72">

@@ -6,29 +6,35 @@ const FrontpageClubMembers = async () => {
 	return (
 		<div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
 			<div className="mx-auto max-w-2xl lg:mx-0">
-				<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+				<span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-royal">
+					<span className="h-px w-8 bg-royal" aria-hidden="true" />
+					Klubben
+				</span>
+				<h2 className="font-display text-3xl font-bold uppercase tracking-tight text-navy sm:text-4xl">
 					Hvem er vi?
 				</h2>
-				<p className="mt-6 text-lg leading-8 text-gray-600">
+				<p className="mt-6 text-lg leading-8 text-navy-600">
 					Hos oss er det en hel rekke mennesker som bidrar til at barn og voksne
 					kan drive med det de elsker. Her er noen av dem.
 				</p>
 			</div>
 			<ul
 				role="list"
-				className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
+				className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-12 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
 			>
 				{people.map((person, index) => (
-					<li key={`${person.name}-${index}`}>
-						<img
-							alt={person.photo?.caption}
-							src={person.photoUrl ?? 'https://via.placeholder.com/150'}
-							className="mx-auto h-24 w-24 rounded-full"
-						/>
-						<h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
+					<li key={`${person.name}-${index}`} className="group">
+						<div className="mx-auto h-24 w-24 overflow-hidden rounded-full ring-2 ring-navy-100 ring-offset-2 transition-all duration-300 group-hover:ring-royal">
+							<img
+								alt={person.photo?.caption ?? person.name}
+								src={person.photoUrl ?? 'https://via.placeholder.com/150'}
+								className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+							/>
+						</div>
+						<h3 className="mt-5 text-base font-semibold leading-7 tracking-tight text-navy">
 							{person.name}
 						</h3>
-						<p className="text-sm leading-6 text-gray-600">{person.role}</p>
+						<p className="text-sm leading-6 text-royal">{person.role}</p>
 					</li>
 				))}
 			</ul>

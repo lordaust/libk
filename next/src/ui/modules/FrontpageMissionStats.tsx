@@ -1,4 +1,5 @@
 import { fetchFrontpageMissionStats } from '@/lib/fetchFrontpageMissionStats'
+import CountUp from './CountUp'
 
 // Define the types to ensure correct data from Sanity
 type StatItem = {
@@ -27,14 +28,14 @@ const FrontpageMissionStats = async () => {
 		<div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
 			<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
 				{/* Title from Sanity */}
-				<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+				<h2 className="font-display text-3xl font-bold uppercase tracking-tight text-navy sm:text-4xl">
 					{title}
 				</h2>
 
-				<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+				<div className="mt-6 flex flex-col gap-x-10 gap-y-16 lg:flex-row">
 					<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
 						{/* Subtitle from Sanity */}
-						<p className="text-xl leading-8 text-gray-600">{subtitle}</p>
+						<p className="text-xl leading-8 text-navy-600">{subtitle}</p>
 
 						<div className="mt-10 max-w-xl text-base leading-7 text-gray-700">
 							{/* Focus from Sanity */}
@@ -47,14 +48,17 @@ const FrontpageMissionStats = async () => {
 
 					<div className="lg:flex lg:flex-auto lg:justify-center">
 						{/* Statistics from Sanity */}
-						<dl className="w-64 space-y-8 xl:w-80">
+						<dl className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:w-80 lg:grid-cols-1">
 							{statistics.map((stat) => (
-								<div key={stat.label} className="flex flex-col-reverse gap-y-4">
-									<dt className="text-base leading-7 text-gray-600">
+								<div
+									key={stat.label}
+									className="flex flex-col-reverse gap-y-2 rounded-2xl border border-navy-100 bg-navy-50/60 p-5 transition-colors hover:border-royal/40 sm:p-6"
+								>
+									<dt className="text-sm font-medium leading-6 text-navy-500 sm:text-base">
 										{stat.label}
 									</dt>
-									<dd className="text-5xl font-semibold tracking-tight text-gray-900">
-										{stat.value}
+									<dd className="font-display text-4xl font-bold tracking-tight text-brand sm:text-5xl">
+										<CountUp value={stat.value} />
 									</dd>
 								</div>
 							))}

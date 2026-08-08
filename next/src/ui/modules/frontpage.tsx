@@ -1,8 +1,8 @@
 import FrontpageClubMembers from './ClubMembers'
 import FrontpageHero from './FrontpageHero'
-import FrontpageLatestNews from './FrontpageLatestNews'
 import FrontpageMissionStats from './FrontpageMissionStats'
 import FrontpageValues from './FrontpageValues'
+import Reveal from './Reveal'
 
 export default function FrontPage() {
 	return (
@@ -12,13 +12,19 @@ export default function FrontPage() {
 				<FrontpageHero />
 
 				{/* Content section */}
-				<FrontpageMissionStats />
+				<Reveal>
+					<FrontpageMissionStats />
+				</Reveal>
 
 				{/* Values section */}
-				<FrontpageValues />
+				<Reveal delay={80}>
+					<FrontpageValues />
+				</Reveal>
 
 				{/* Team section */}
-				<FrontpageClubMembers />
+				<Reveal delay={80}>
+					<FrontpageClubMembers />
+				</Reveal>
 			</main>
 		</div>
 	)

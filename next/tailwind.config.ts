@@ -8,6 +8,50 @@ const config: Config = {
 				heroimage: "url('/images/banner_bg_3.png')",
 			},
 			colors: {
+				// Club brand palette (derived from the LIBK logo: crimson red + deep navy)
+				brand: {
+					DEFAULT: '#C8102E',
+					50: '#FDF2F3',
+					100: '#FBE0E4',
+					200: '#F5BAC3',
+					300: '#EE909F',
+					400: '#E15A70',
+					500: '#C8102E',
+					600: '#B20E29',
+					700: '#8E0B21',
+					800: '#6A0818',
+					900: '#480510',
+					950: '#2C0209',
+				},
+				navy: {
+					DEFAULT: '#16233F',
+					50: '#EEF1F7',
+					100: '#DBE1EC',
+					200: '#B7C3D9',
+					300: '#8A9CBD',
+					400: '#57709A',
+					500: '#334C77',
+					600: '#233757',
+					700: '#16233F',
+					800: '#0F192D',
+					900: '#0A111F',
+					950: '#050810',
+				},
+				// Primary carrying color: club blue (used for nav, borders, links, CTAs)
+				royal: {
+					DEFAULT: '#2563EB',
+					50: '#EFF5FF',
+					100: '#DBE8FE',
+					200: '#BFD7FE',
+					300: '#93BBFD',
+					400: '#609AFA',
+					500: '#3B7AF6',
+					600: '#2563EB',
+					700: '#1D4FD7',
+					800: '#1E40AF',
+					900: '#1E3A8A',
+					950: '#172554',
+				},
 				primary_blue: '#312985',
 				secondary_blue: '#668F80',
 				background_blue: '#312985',
@@ -100,6 +144,12 @@ const config: Config = {
 			},
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'], // You can keep this for consistency
+				display: ['var(--font-display)', 'Poppins', 'sans-serif'],
+			},
+			boxShadow: {
+				card: '0 1px 2px 0 rgba(16, 25, 45, 0.06), 0 8px 24px -12px rgba(16, 25, 45, 0.25)',
+				'card-hover':
+					'0 2px 4px 0 rgba(16, 25, 45, 0.08), 0 18px 40px -16px rgba(37, 99, 235, 0.30)',
 			},
 		},
 	},
