@@ -11,13 +11,14 @@ import fetchTeamFaqData from '@/lib/fetchTeamFaqData'
 import TeamImage from '@/ui/modules/TeamImage'
 
 type TeamPageProps = {
-	params: {
+	params: Promise<{
 		slug: string
-	}
+	}>
 }
 
 const LagInfo: NextPage<TeamPageProps> = async ({ params }) => {
-	const teamData = await fetchTeamData(params.slug)
+	const { slug } = await params
+	const teamData = await fetchTeamData(slug)
 	const teamFaqData = await fetchTeamFaqData()
 	//	console.log(teamData.teamImage as { asset?: any; crop?: any; hotspot?: any })
 	//console.log(teamFaqData)
