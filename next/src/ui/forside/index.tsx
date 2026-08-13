@@ -18,9 +18,9 @@ export default function forside() {
 				</div>
 				<Image
 					className="h-auto w-20 shrink-0 drop-shadow-sm sm:w-28 lg:w-[185px]"
-					src="/images/logo_libk_smaller.png"
+					src="/images/logo_libk_2025.png"
 					alt="Lørenskog Innebandy Logo"
-					height={150}
+					height={229}
 					width={185}
 					priority
 				/>

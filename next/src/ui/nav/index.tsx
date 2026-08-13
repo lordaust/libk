@@ -25,11 +25,11 @@ function LogoLockup({ onNavigate }: { onNavigate?: () => void }) {
 		>
 			<span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/95 shadow-sm ring-1 ring-white/20 transition-transform duration-200 group-hover:scale-105">
 				<Image
-					src="/images/logo_libk_smaller.png"
+					src="/images/logo_libk_2025.png"
 					alt="Lørenskog Innebandyklubb logo"
 					width={40}
-					height={32}
-					className="h-8 w-auto"
+					height={50}
+					className="h-9 w-auto"
 				/>
 			</span>
 			<span className="flex flex-col leading-none">
@@ -151,11 +151,11 @@ export default function NavBar({ teams }: NavBarProps) {
 				</button>
 				<a href="/" className="flex flex-1 items-center gap-2 truncate">
 					<Image
-						src="/images/logo_libk_smaller.png"
+						src="/images/logo_libk_2025.png"
 						alt="Lørenskog Innebandyklubb logo"
-						width={32}
-						height={26}
-						className="h-7 w-auto"
+						width={26}
+						height={32}
+						className="h-8 w-auto"
 					/>
 					<span className="truncate font-display text-base font-bold uppercase tracking-wide text-white">
 						Lørenskog Innebandyklubb
