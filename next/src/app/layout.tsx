@@ -2,6 +2,7 @@ import Forside from '@/ui/forside'
 import Nav from '@/ui/nav'
 import Footer from '@/ui/footer'
 import Separator from '@/ui/modules/Separator'
+import { Analytics } from '@vercel/analytics/next'
 
 // import { GoogleTagManager } from '@next/third-parties/google'
 import '@/styles/app.css'
@@ -54,6 +55,7 @@ export default async function RootLayout({
 						<Footer />
 					</div>
 				</div>
+				<Analytics />
 			</body>
 		</html>
 	)
