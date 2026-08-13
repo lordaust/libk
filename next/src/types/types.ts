@@ -55,6 +55,25 @@ export type Attachment = {
 	fileUrl: string
 }
 
+// Internal ("intern") documents & media – unlisted resources.
+// `category` is matched against the URL path (media / dokumenter).
+export type InternalDocumentCategory = 'media' | 'dokumenter'
+
+export type InternalDocument = {
+	_id: string
+	title: string
+	description?: string
+	category: InternalDocumentCategory
+	// Either an uploaded file URL (Sanity asset) or an external link.
+	fileUrl: string
+	// True when the resource is an external link rather than an uploaded file.
+	isExternal?: boolean
+	// e.g. 'pdf', 'docx', 'xlsx', 'png', 'svg', 'link'
+	fileType?: string
+	// ISO date string
+	publishedAt?: string
+}
+
 export type BlogCategoryType = {
 	_id: string
 	title: string
