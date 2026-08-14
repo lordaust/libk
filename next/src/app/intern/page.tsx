@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FaFolderOpen, FaImages, FaArrowRight } from 'react-icons/fa'
 import InternalPageHeading from '@/ui/modules/InternalPageHeading'
 import Separator from '@/ui/modules/Separator'
-import { getInternalDocumentCount } from '@/lib/internalDocumentsMock'
+import { fetchInternalDocumentCount } from '@/lib/fetchInternalDocuments'
 
 export const metadata: Metadata = {
 	title: 'Intern | Lørenskog Innebandyklubb',
@@ -30,7 +30,14 @@ const categories = [
 	},
 ]
 
-export default function InternPage() {
+export default async function InternPage() {
+	const counts = await Promise.all(
+		categories.map((cat) => fetchInternalDocumentCount(cat.category)),
+	)
+	const countByCategory = Object.fromEntries(
+		categories.map((cat, i) => [cat.category, counts[i]]),
+	) as Record<(typeof categories)[number]['category'], number>
+
 	return (
 		<div>
 			<InternalPageHeading
@@ -41,7 +48,7 @@ export default function InternPage() {
 			<div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
 				{categories.map((cat) => {
 					const Icon = cat.icon
-					const count = getInternalDocumentCount(cat.category)
+					const count = countByCategory[cat.category]
 					return (
 						<Link
 							key={cat.href}
