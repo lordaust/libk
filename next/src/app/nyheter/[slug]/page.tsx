@@ -8,13 +8,14 @@ import fetchNewsDetailData from '@/lib/fetchNewsDetailData'
 import NewsDetails from '@/ui/modules/NewsDetails'
 
 type NewsDetailPageProps = {
-	params: {
+	params: Promise<{
 		slug: string
-	}
+	}>
 }
 
 const NewsDetail: NextPage<NewsDetailPageProps> = async ({ params }) => {
-	const newsDetailData = await fetchNewsDetailData(params.slug)
+	const { slug } = await params
+	const newsDetailData = await fetchNewsDetailData(slug)
 	//console.log(newsDetailData)
 
 	// Check if team data is present

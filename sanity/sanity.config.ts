@@ -34,10 +34,23 @@ export default defineConfig({
 
 	schema: {
 		types: schemaTypes,
-		templates: (templates) =>
-			templates.filter(
+		templates: (templates) => [
+			...templates.filter(
 				({ schemaType }) => !singletonTypes.includes(schemaType),
 			),
+			{
+				id: 'internalDocument-dokumenter',
+				title: 'Dokument (intern)',
+				schemaType: 'internalDocument',
+				value: { category: 'dokumenter' },
+			},
+			{
+				id: 'internalDocument-media',
+				title: 'Media (intern)',
+				schemaType: 'internalDocument',
+				value: { category: 'media' },
+			},
+		],
 	},
 
 	document: {

@@ -29,6 +29,9 @@ export const metadata = {
 	title: 'Lørenskog Innebandyklubb',
 	description:
 		'Innebandy for alle. Vi har lag for alle aldre og nivåer. Velkommen til Lørenskog Innebandyklubb.',
+	icons: {
+		icon: '/favicon.ico',
+	},
 }
 
 export default async function RootLayout({
