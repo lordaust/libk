@@ -5,6 +5,7 @@ import person from './documents/person'
 import team from './documents/team'
 import faq from './documents/faq'
 import attachment from './documents/attachment'
+import internalDocument from './documents/internalDocument'
 import frontpageHeroBanner from './documents/frontpageHeroBanner'
 import frontpageMissionStats from './documents/frontpageMissionStats'
 import frontpageValues from './documents/frontpageValues'
@@ -19,6 +20,7 @@ export const schemaTypes = [
 	team,
 	faq,
 	attachment,
+	internalDocument,
 	frontpageHeroBanner,
 	frontpageValues,
 	frontpageMissionStats,
