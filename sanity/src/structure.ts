@@ -11,6 +11,8 @@ import {
 	VscMegaphone,
 	VscGraphLine,
 	VscLaw,
+	VscFolderOpened,
+	VscFileMedia,
 } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
@@ -55,6 +57,38 @@ const structure: StructureResolver = (S, context) =>
 					S.document()
 						.schemaType('frontpageValues')
 						.documentId('frontpageValues'),
+				),
+
+			// Section Header: Interne ressurser
+			S.divider(),
+			S.listItem()
+				.title('Interne ressurser')
+				.icon(() => null),
+			S.listItem()
+				.title('Dokumenter (intern)')
+				.icon(VscFolderOpened)
+				.child(
+					S.documentList()
+						.title('Dokumenter (intern)')
+						.schemaType('internalDocument')
+						.filter('_type == "internalDocument" && category == "dokumenter"')
+						.defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+						.initialValueTemplates([
+							S.initialValueTemplateItem('internalDocument-dokumenter'),
+						]),
+				),
+			S.listItem()
+				.title('Media (intern)')
+				.icon(VscFileMedia)
+				.child(
+					S.documentList()
+						.title('Media (intern)')
+						.schemaType('internalDocument')
+						.filter('_type == "internalDocument" && category == "media"')
+						.defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+						.initialValueTemplates([
+							S.initialValueTemplateItem('internalDocument-media'),
+						]),
 				),
 
 			// Section Header: Konfigurasjon
