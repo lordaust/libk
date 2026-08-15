@@ -2,7 +2,6 @@ import { list } from './utils'
 import type { StructureResolver } from 'sanity/structure'
 
 import {
-	VscServerProcess,
 	VscTag,
 	VscFlame,
 	VscJersey,
@@ -13,6 +12,7 @@ import {
 	VscLaw,
 	VscFolderOpened,
 	VscFileMedia,
+	VscFiles,
 } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
@@ -90,13 +90,25 @@ const structure: StructureResolver = (S, context) =>
 							S.initialValueTemplateItem('internalDocument-media'),
 						]),
 				),
+			S.listItem()
+				.title('Andre filer (vedlegg)')
+				.icon(VscFiles)
+				.child(
+					S.documentList()
+						.title('Andre filer (vedlegg)')
+						.schemaType('internalDocument')
+						.filter('_type == "internalDocument" && category == "annet"')
+						.defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+						.initialValueTemplates([
+							S.initialValueTemplateItem('internalDocument-annet'),
+						]),
+				),
 
 			// Section Header: Konfigurasjon
 			S.divider(),
 			S.listItem()
 				.title('Konfigurasjon')
 				.icon(() => null),
-			list(S, 'Dokumenter og vedlegg', 'attachment').icon(VscServerProcess),
 			list(S, 'Nyhetskategorier', 'blogcategory').icon(VscTag),
 		])
 

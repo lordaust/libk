@@ -20,16 +20,17 @@ export default defineType({
 			name: 'category',
 			title: 'Kategori',
 			description:
-				'Bestemmer hvilken side ressursen vises på – «Dokumenter» eller «Media».',
+				'Bestemmer hvor ressursen vises. «Dokumenter» og «Media» vises på de interne sidene. «Annet» vises ikke i noen utlisting – bruk den for filer som kun skal legges ved en nyhetsartikkel eller side.',
 			type: 'string',
 			options: {
 				list: [
 					{ title: 'Dokumenter', value: 'dokumenter' },
 					{ title: 'Media', value: 'media' },
+					{ title: 'Annet (kun vedlegg)', value: 'annet' },
 				],
 				layout: 'radio',
 			},
-			initialValue: 'dokumenter',
+			initialValue: 'annet',
 			validation: (Rule) => Rule.required().error('Kategori er påkrevd.'),
 		}),
 		defineField({
@@ -146,7 +147,12 @@ export default defineType({
 						break
 				}
 
-			const categoryLabel = category === 'media' ? 'Media' : 'Dokumenter'
+			const categoryLabel =
+				category === 'media'
+					? 'Media'
+					: category === 'annet'
+						? 'Annet'
+						: 'Dokumenter'
 
 			return {
 				title: `${emoji} ${title}`,

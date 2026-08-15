@@ -50,6 +50,12 @@ export default defineConfig({
 				schemaType: 'internalDocument',
 				value: { category: 'media' },
 			},
+			{
+				id: 'internalDocument-annet',
+				title: 'Vedlegg (annet)',
+				schemaType: 'internalDocument',
+				value: { category: 'annet' },
+			},
 		],
 	},
 
