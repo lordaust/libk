@@ -14,7 +14,7 @@ import {
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 
-const singletonTypes = ['site']
+const singletonTypes = ['site', 'klubbinfoPage']
 
 export default defineConfig({
 	name: 'libk',
@@ -49,6 +49,12 @@ export default defineConfig({
 				title: 'Media (intern)',
 				schemaType: 'internalDocument',
 				value: { category: 'media' },
+			},
+			{
+				id: 'internalDocument-annet',
+				title: 'Vedlegg (annet)',
+				schemaType: 'internalDocument',
+				value: { category: 'annet' },
 			},
 		],
 	},

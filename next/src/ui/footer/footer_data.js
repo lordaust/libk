@@ -1,7 +1,7 @@
 const navigation = {
 	main: [
 		{ name: 'Nyheter', href: '/nyheter' },
-		{ name: 'Kontaktpersoner', href: '/klubbinfo' },
+		{ name: 'Kontaktpersoner', href: '/klubbinfo/styret' },
 		{ name: 'Partnere og sponsorat', href: '/partnere' },
 	],
 	social: [

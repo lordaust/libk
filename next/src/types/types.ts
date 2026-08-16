@@ -79,6 +79,34 @@ export type BlogCategoryType = {
 	title: string
 }
 
+// A contact person as rendered on an "Om oss" section (subset of PersonType).
+export type AboutContactPerson = {
+	name: string
+	role: string
+	email: string
+	phone: string
+	photoUrl: string | null
+}
+
+// An editable "Om oss" section shown on /klubbinfo, sorted by `order`.
+export type AboutSectionType = {
+	_id: string
+	header: string
+	subtitle?: string
+	// Portable Text (same block/image shape as blog post body)
+	content: any
+	contactPerson?: AboutContactPerson | null
+	order: number
+	// Sanity's automatic last-updated timestamp (ISO string)
+	_updatedAt: string
+}
+
+// Singleton holding the /klubbinfo contact-link CTA config.
+export type KlubbinfoPageType = {
+	contactLinkText: string
+	contactLinkTarget: string
+}
+
 export type BlogPostType = {
 	_id: string
 	title: string // This is the human-readable title

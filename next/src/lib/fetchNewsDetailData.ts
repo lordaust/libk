@@ -29,7 +29,10 @@ const fetchNewsData = async (slug: string): Promise<BlogPostType> => {
     _id,
     title,
     description,
-    "fileUrl": file.asset->url
+    "fileUrl": select(
+      sourceType == "external" => externalUrl,
+      file.asset->url
+    )
   },
   "categories": categories[]->{
     _id,

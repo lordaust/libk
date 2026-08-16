@@ -43,11 +43,13 @@ export default {
 			name: 'attachments',
 			title: 'Vedlegg',
 			description:
-				'Velg å legge til et eller flere vedlegg som kan lastes ned under spørsmålet.',
+				'Velg å legge til ett eller flere vedlegg som kan lastes ned under spørsmålet. Nye filer opprettet her havner i kategorien «Annet» og vises ikke på de interne sidene.',
 			type: 'array',
 			of: [
 				{
-					type: 'attachment', // This allows uploading new attachments directly
+					type: 'reference', // Select any file from the unified resource library
+					to: [{ type: 'internalDocument' }],
+					weak: true,
 				},
 			],
 		},

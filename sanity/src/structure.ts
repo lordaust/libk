@@ -2,7 +2,6 @@ import { list } from './utils'
 import type { StructureResolver } from 'sanity/structure'
 
 import {
-	VscServerProcess,
 	VscTag,
 	VscFlame,
 	VscJersey,
@@ -13,6 +12,9 @@ import {
 	VscLaw,
 	VscFolderOpened,
 	VscFileMedia,
+	VscFiles,
+	VscListOrdered,
+	VscLink,
 } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
@@ -28,6 +30,30 @@ const structure: StructureResolver = (S, context) =>
 			list(S, 'Lag', 'team').icon(VscJersey),
 			list(S, 'Personer', 'person').icon(VscFeedback),
 			list(S, 'Ofte stilte spørsmål', 'faq').icon(VscWorkspaceUnknown),
+
+			// Section Header: Om oss (Klubbinfo)
+			S.divider(),
+			S.listItem()
+				.title('Om oss (Klubbinfo)')
+				.icon(() => null),
+			S.listItem()
+				.title('Om oss-seksjoner')
+				.icon(VscListOrdered)
+				.child(
+					S.documentList()
+						.title('Om oss-seksjoner')
+						.schemaType('aboutSection')
+						.filter('_type == "aboutSection"')
+						.defaultOrdering([{ field: 'order', direction: 'asc' }]),
+				),
+			S.listItem()
+				.title('Klubbinfo-side (kontaktlenke)')
+				.icon(VscLink)
+				.child(
+					S.document()
+						.schemaType('klubbinfoPage')
+						.documentId('klubbinfoPage'),
+				),
 
 			// "Fast innhold" with Singletons listed directly
 			S.divider(),
@@ -90,13 +116,25 @@ const structure: StructureResolver = (S, context) =>
 							S.initialValueTemplateItem('internalDocument-media'),
 						]),
 				),
+			S.listItem()
+				.title('Andre filer (vedlegg)')
+				.icon(VscFiles)
+				.child(
+					S.documentList()
+						.title('Andre filer (vedlegg)')
+						.schemaType('internalDocument')
+						.filter('_type == "internalDocument" && category == "annet"')
+						.defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+						.initialValueTemplates([
+							S.initialValueTemplateItem('internalDocument-annet'),
+						]),
+				),
 
 			// Section Header: Konfigurasjon
 			S.divider(),
 			S.listItem()
 				.title('Konfigurasjon')
 				.icon(() => null),
-			list(S, 'Dokumenter og vedlegg', 'attachment').icon(VscServerProcess),
 			list(S, 'Nyhetskategorier', 'blogcategory').icon(VscTag),
 		])
 
