@@ -39,7 +39,7 @@ const FAQList: React.FC<BlogListProps> = ({ posts, featuredPost }) => {
 						</div>
 						<div className="flex lg:border-t lg:border-gray-900/10 lg:pt-8">
 							<a
-								href={`/klubbinfo/`}
+								href={`/klubbinfo/styret`}
 								className="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900"
 							>
 								<img
@@ -89,7 +89,7 @@ const FAQList: React.FC<BlogListProps> = ({ posts, featuredPost }) => {
 								</div>
 								<div className="mt-4 flex">
 									<a
-										href={`/klubbinfo/`}
+										href={`/klubbinfo/styret`}
 										className="relative flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900"
 									>
 										<img

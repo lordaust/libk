@@ -59,7 +59,7 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ news }) => {
 					</time>
 					<div className="flex lg:border-t lg:border-gray-900/10 lg:pt-8">
 						<a
-							href={`/klubbinfo/`}
+							href={`/klubbinfo/styret`}
 							className="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900"
 						>
 							<img

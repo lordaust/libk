@@ -13,6 +13,8 @@ import {
 	VscFolderOpened,
 	VscFileMedia,
 	VscFiles,
+	VscListOrdered,
+	VscLink,
 } from 'react-icons/vsc'
 
 const structure: StructureResolver = (S, context) =>
@@ -28,6 +30,30 @@ const structure: StructureResolver = (S, context) =>
 			list(S, 'Lag', 'team').icon(VscJersey),
 			list(S, 'Personer', 'person').icon(VscFeedback),
 			list(S, 'Ofte stilte spørsmål', 'faq').icon(VscWorkspaceUnknown),
+
+			// Section Header: Om oss (Klubbinfo)
+			S.divider(),
+			S.listItem()
+				.title('Om oss (Klubbinfo)')
+				.icon(() => null),
+			S.listItem()
+				.title('Om oss-seksjoner')
+				.icon(VscListOrdered)
+				.child(
+					S.documentList()
+						.title('Om oss-seksjoner')
+						.schemaType('aboutSection')
+						.filter('_type == "aboutSection"')
+						.defaultOrdering([{ field: 'order', direction: 'asc' }]),
+				),
+			S.listItem()
+				.title('Klubbinfo-side (kontaktlenke)')
+				.icon(VscLink)
+				.child(
+					S.document()
+						.schemaType('klubbinfoPage')
+						.documentId('klubbinfoPage'),
+				),
 
 			// "Fast innhold" with Singletons listed directly
 			S.divider(),

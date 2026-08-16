@@ -19,7 +19,7 @@ const Oss: React.FC<OssDetailsProps> = ({ questions }) => {
 							kan hjelpe. Hvis du ikke finner svaret du leter etter, kan du
 							kontakte
 							<a
-								href="/klubbinfo"
+								href="/klubbinfo/styret"
 								className="font-semibold text-indigo-600 hover:text-indigo-500"
 							>
 								&nbsp;oss&nbsp;

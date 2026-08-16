@@ -14,7 +14,7 @@ import {
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 
-const singletonTypes = ['site']
+const singletonTypes = ['site', 'klubbinfoPage']
 
 export default defineConfig({
 	name: 'libk',
