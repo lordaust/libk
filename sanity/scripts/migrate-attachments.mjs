@@ -5,13 +5,22 @@
 // Run: node --env-file-if-exists=/vercel/share/.env.project sanity/scripts/migrate-attachments.mjs
 
 const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-const TOKEN = process.env.NEXT_PUBLIC_SANITY_TOKEN
+// A write-capable (Editor) token is required for the mutations. The public
+// NEXT_PUBLIC_SANITY_TOKEN is read-only, so fall back to it only for queries.
+const TOKEN = process.env.SANITY_WRITE_TOKEN || process.env.NEXT_PUBLIC_SANITY_TOKEN
 const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const API = `https://${PROJECT_ID}.api.sanity.io/v2023-09-04/data`
 
 if (!PROJECT_ID || !TOKEN) {
-	console.error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID or NEXT_PUBLIC_SANITY_TOKEN')
+	console.error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID or a Sanity token')
 	process.exit(1)
+}
+
+if (!process.env.SANITY_WRITE_TOKEN) {
+	console.warn(
+		'Warning: SANITY_WRITE_TOKEN is not set. The public token is read-only and ' +
+			'the mutation step will fail with an "insufficient permissions" error.',
+	)
 }
 
 const newIdFor = (oldId) => `internalDocument-${oldId.replace(/^drafts\./, '')}`
